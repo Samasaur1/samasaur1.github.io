@@ -1,0 +1,11 @@
+- name: Home
+  link: /
+- name: About
+  link: /about.html
+- name: Projects
+  link: /projects/
+  dropdownitems:
+    - name: DiceKit
+      link: /projects/dicekit
+    - name: SimpleSwiftServer
+      link: /projects/simpleswiftserver
