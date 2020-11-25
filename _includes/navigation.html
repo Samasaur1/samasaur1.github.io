@@ -1,34 +1,41 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/">Navbar</a>
+  <a class="navbar-brand" href="/">Samasaur1</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li {% if page.url == "/" %}class="nav-item active"{% else %}class="nav-item"{% endif %}>
-        <a class="nav-link" href="/">Home{% if page.url == "/" %} <span class="sr-only">(current)</span>{% endif %}</a>
-      </li>
-      <li {% if page.url == "/about.html" %}class="nav-item active"{% else %}class="nav-item"{% endif %}>
-        <a class="nav-link" href="/about.html">About{% if page.url == "/about.html" %} <span class="sr-only">(current)</span>{% endif %}</a>
-      </li>
-      <li {% if page.url contains "/projects/" %}class="nav-item dropdown active"{% else %}class="nav-item dropdown"{% endif %}>
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Projects
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/projects/dicekit.html">DiceKit{% if page.url == "projects/dicekit.html" %} <span class="sr-only">(current)</span>{% endif %}</a>
-          <a class="dropdown-item" href="/projects/simpleswiftserver.html">SimpleSwiftServer{% if page.url == "projects/simpleswiftserver.html" %} <span class="sr-only">(current)</span>{% endif %}</a>
-          <a class="dropdown-item" href="/projects/swiftip.html">SwiftIP{% if page.url == "projects/swiftip.html" %} <span class="sr-only">(current)</span>{% endif %}</a>
-          <a class="dropdown-item" href="/projects/repl.html">REPL{% if page.url == "projects/repl.html" %} <span class="sr-only">(current)</span>{% endif %}</a>
-          <a class="dropdown-item" href="/projects/helpme.html">helpme{% if page.url == "projects/helpme.html" %} <span class="sr-only">(current)</span>{% endif %}</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="/projects/index.html">All projects{% if page.url == "/projects/" %} <span class="sr-only">(current)</span>{% endif %}</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-      </li>
+      {% for item in site.data.navigation %}
+        {% if item.dropdownitems[0] %}
+          {% if page.url contains item.link %}
+          <li class="nav-item dropdown active">
+          {% else %}
+          <li class="nav-item dropdown">
+          {% endif %}
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown{{ item.name | join: " " }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{ item.name }}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown{{ item.name | join: " " }}">
+              {% for subitem in item.dropdownitems %}
+                <a class="dropdown-item" href="{{ subitem.link | relative_url }}">{{ subitem.name }}{% if page.url == subitem.link %}<span class="sr-only"> (current)</span>{% endif %}</a>
+              {% endfor %}
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="{{ item.link | relative_url }}">All {{ item.name | downcase }}{% if page.url == item.link %}<span class="sr-only"> (current)</span>{% endif %}</a>
+            </div>
+          </li>
+        {% else %}
+          {% if item.link == page.url %}
+            <li class="nav-item active">
+              <a class="nav-link" href="{{ item.link | relative_url }}">{{ item.name }}<span class="sr-only"> (current)</span></a>
+            </li>
+          {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{{ item.link | relative_url }}">{{ item.name }}</a>
+            </li>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

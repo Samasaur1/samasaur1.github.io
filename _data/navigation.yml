@@ -6,6 +6,6 @@
   link: /projects/
   dropdownitems:
     - name: DiceKit
-      link: /projects/dicekit
+      link: /projects/dicekit.html
     - name: SimpleSwiftServer
-      link: /projects/simpleswiftserver
+      link: /projects/simpleswiftserver.html
