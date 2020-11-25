@@ -4,29 +4,23 @@
   description: Make mobile dice rolling easy. Available on the iOS App Store.
   languages: Swift
   type: app
+- name: SimpleSwiftServer
+  repo_url: https://github.com/Samasaur1/SimpleSwiftServer
+  link: /projects/simpleswiftserver.html
+  description: Quick and easy file sharing (direct download or directory browsing) and more.
+  languages: Swift
+  type: executable
 - name: DiceKit
   repo_url: https://github.com/Samasaur1/DiceKit
   link: /projects/dicekit.html
   description: Simulate dice both real and unreal — with custom dice, weighted dice, and probability.
   languages: Swift
   type: library
-- name: REPL
-  repo_url: https://github.com/Samasaur1/REPL
-  link: /projects/repl.html
-  description: Prefix any command with a given string, or run a series of subcommands.
-  languages: Swift
-  type: executable
 - name: helpme
   repo_url: https://github.com/Samasaur1/helpme
   link: /projects/helpme.html
   description: Let past you help future you out. Keep track of configuration and more with command-line tidbits.
   languages: Python
-  type: executable
-- name: SimpleSwiftServer
-  repo_url: https://github.com/Samasaur1/SimpleSwiftServer
-  link: /projects/simpleswiftserver.html
-  description: Quick and easy file sharing (direct download or directory browsing) and more.
-  languages: Swift
   type: executable
 - name: SwiftIP
   repo_url: https://github.com/Samasaur1/SwiftIP
@@ -34,16 +28,16 @@
   description: IP addresses in Swift — public or local, IPv4 or IPv6.
   languages: Swift
   type: library
-- name: SwiftySCADKit
-  repo_url: https://github.com/Samasaur1/SwiftySCADKit
-  link: /projects/swiftyscadkit.html
-  description: OpenSCAD in Swift, allowing autocompletion, syntax highlighting, and code reuse.
+- name: RooScout
+  repo_url: https://github.com/Roobotics-FRC/RooScout
+  link: /projects/rooscout.html
+  description: Team 4373's scouting app (beta). Use multiple scout devices, and then sync to a base station device.
   languages: Swift
-  type: library
-- name: RPG-card-generator
-  repo_url: https://github.com/Samasaur1/RPG-card-generator
-  link: /projects/rpg-card-generator.html
-  description: Generate JSON for use with <strong>@crobi</strong>'s rpg-cards. Pick from a library, or create your own.
+  type: app
+- name: REPL
+  repo_url: https://github.com/Samasaur1/REPL
+  link: /projects/repl.html
+  description: Prefix any command with a given string, or run a series of subcommands.
   languages: Swift
   type: executable
 - name: Typer
@@ -52,10 +46,10 @@
   description: Type any text, indistinguishably from user input. Not detectable as automated.
   languages: Swift
   type: library
-- name: TyperTool
-  repo_url: https://github.com/Samasaur1/TyperTool
-  link: /projects/typertool.html
-  description: A basic implementation using Typer — give it text and a delay, then lean back and watch.
+- name: RPG-card-generator
+  repo_url: https://github.com/Samasaur1/RPG-card-generator
+  link: /projects/rpg-card-generator.html
+  description: Generate JSON for use with <strong>@crobi</strong>'s rpg-cards. Pick from a library, or create your own.
   languages: Swift
   type: executable
 - name: RooSwerve
@@ -64,9 +58,15 @@
   description: Team 4373's swerve drive library.
   languages: Java
   type: library
-- name: RooScout
-  repo_url: https://github.com/Roobotics-FRC/RooScout
-  link: /projects/rooscout.html
-  description: Team 4373's scouting app (beta). Use multiple scout devices, and then sync to a base station device.
+- name: TyperTool
+  repo_url: https://github.com/Samasaur1/TyperTool
+  link: /projects/typertool.html
+  description: A basic implementation using Typer — give it text and a delay, then lean back and watch.
   languages: Swift
-  type: app
+  type: executable
+- name: SwiftySCADKit
+  repo_url: https://github.com/Samasaur1/SwiftySCADKit
+  link: /projects/swiftyscadkit.html
+  description: OpenSCAD in Swift, allowing autocompletion, syntax highlighting, and code reuse.
+  languages: Swift
+  type: library
