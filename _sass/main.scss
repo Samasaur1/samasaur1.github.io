@@ -1,3 +1,44 @@
 .card {
   // margin: 1em;
 }
+// language colors from https://github.com/ozh/github-colors
+.badge-swift {
+  background-color: #ffac45;
+  color: #111111;
+}
+.badge-python {
+  background-color: #3572A5;
+  color: #ffffff;
+}
+.badge-java {
+  background-color: #b07219;
+  color: #ffffff;
+}
+.badge-kotlin {
+  background-color: #F18E33;
+  color: #ffffff;
+}
+%icon {
+  display: inline-block;
+  content: "";
+  width:1em;
+  height:1em;
+  margin-bottom: -2px;
+}
+.icon-library {
+  @extend %icon;
+  background: url("/assets/images/package.svg") left top;
+}
+.icon-executable {
+  @extend %icon;
+  background: url("/assets/images/terminal.svg") left top;
+}
+//icon-github from https://fontawesome.com/icons/github?style=brands
+.icon-github {
+  @extend %icon;
+  background: url("/assets/images/github.svg") left top;
+}
+.icon-app {
+  @extend %icon;
+  background: url("/assets/images/app.svg") left top;
+}

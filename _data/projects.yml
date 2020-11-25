@@ -1,0 +1,72 @@
+- name: Custom Die Roller
+  repo_url: null;
+  link: /projects/customdieroller.html
+  description: Make mobile dice rolling easy
+  languages: Swift
+  type: app
+- name: DiceKit
+  repo_url: https://github.com/Samasaur1/DiceKit
+  link: /projects/dicekit.html
+  description: A Swift module for simulating dice both real and unreal
+  languages: Swift
+  type: library
+- name: REPL
+  repo_url: https://github.com/Samasaur1/REPL
+  link: /projects/repl.html
+  description: A simple CLT to prefix any command with a given one
+  languages: Swift
+  type: executable
+- name: helpme
+  repo_url: https://github.com/Samasaur1/helpme
+  link: /projects/helpme.html
+  description: A little tool to help you remember some command-line tidbits
+  languages: Python
+  type: executable
+- name: SimpleSwiftServer
+  repo_url: https://github.com/Samasaur1/SimpleSwiftServer
+  link: /projects/simpleswiftserver.html
+  description: A Swift executable equivalent to Python's SimpleHTTPServer — plus more!
+  languages: Swift
+  type: executable
+- name: SwiftIP
+  repo_url: https://github.com/Samasaur1/SwiftIP
+  link: /projects/swiftip.html
+  description: A library to help with getting IP addresses in Swift
+  languages: Swift
+  type: library
+- name: SwiftySCADKit
+  repo_url: https://github.com/Samasaur1/SwiftySCADKit
+  link: /projects/swiftyscadkit.html
+  description: A Swift package to allow OpenSCAD work in Swift
+  languages: Swift
+  type: library
+- name: RPG-card-generator
+  repo_url: https://github.com/Samasaur1/RPG-card-generator
+  link: /projects/rpg-card-generator.html
+  description: A Swift CLT to interface with https://crobi.github.io/rpg-cards/generator/generate.html
+  languages: Swift
+  type: executable
+- name: Typer
+  repo_url: https://github.com/Samasaur1/Typer
+  link: /projects/typer.html
+  description: A Swift package that types the given text using AppleScript
+  languages: Swift
+  type: library
+- name: TyperTool
+  repo_url: https://github.com/Samasaur1/TyperTool
+  link: /projects/typertool.html
+  description: An example CLT using my Typer module
+  languages: Swift
+  type: executable
+- name: RooSwerve
+  repo_url: https://github.com/Roobotics-FRC/RooSwerve
+  link: /projects/rooswerve.html
+  description: Team 4373's swerve drive library.
+  languages: Java
+  type: library
+- name: RooScout
+  repo_url: https://github.com/Roobotics-FRC/RooScout
+  link: /projects/rooscout.html
+  description: Team 4373's scouting app (beta)
+  languages: Swift
+  type: app

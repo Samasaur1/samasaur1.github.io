@@ -1,14 +1,53 @@
 ---
 layout: default
-title: All Projects
+title: Samasaur1 | All Projects
 ---
+<main role="main">
+  <div class="my-5"></div> <!--spacer-->
+  <!-- Marketing messaging and featurettes
+  ================================================== -->
+  <!-- Wrap the rest of the page in another container to center all the content. -->
 
-<div class="card" style="width: 18rem;">
-  <img src="https://raw.githubusercontent.com/Samasaur1/DiceKit/master/logo/logo109B.png" class="card-img-top" alt="DiceKit logo" style="padding:1em;">
-  <hr style="width:100%;margin-bottom:0px;"/>
-  <div class="card-body">
-    <h5 class="card-title">DiceKit</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="/projects/dicekit.html" class="btn btn-primary">Go somewhere</a>
+  <div class="container marketing">
+
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+      <div class="col-lg-4">
+        <span class="rounded-circle">
+          <img class="p-0" src="https://raw.githubusercontent.com/Samasaur1/DiceKit/master/logo/logo-black-alone.png" alt="DiceKit Logo" width="140" height="140">
+        </span>
+        <h2>DiceKit</h2>
+        <p>A Swift package for simulating dice both real and unreal. It allows the creation of dice with any number of sides, collections of dice, weighted dice, and custom dice. It additionally supports multiple ways to roll dice and calculating the probabilities of specific results.</p>
+        <p><a class="btn btn-primary" href="{{ "/projects/dicekit.html" | relative_url }}" role="button">View details &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <img src="/assets/images/roobotics-icon.png" alt="RooBotics Logo" width="140" height="140">
+        <h2>RooScout</h2>
+        <p>An iOS and macOS app combination designed for scouting other FRC teams while at competitions. It can be installed on multiple "scout" iOS devices, which sync their data to the "base" macOS device, from where the data can be exported. Currently in beta.</p>
+        <p><a class="btn btn-primary" href="{{ "/projects/rooscout.html" | relative_url }}" role="button">View details &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <img class="rounded-circle" src="/assets/images/customdieroller-icon.png" alt="Custom Die Roller Logo" width="140" height="140">
+        <h2>Custom Die Roller</h2>
+        <p>This app is an easy yet powerful way to roll virtual dice. It supports multiple dice, drag & drop, probability calculation and visualization, and dice notation editing. Free on the iOS App Store, with no accounts necessary and no data collected.</p>
+        <p><a class="btn btn-primary" href="{{ "/projects/customdieroller.html" | relative_url }}" role="button">View details &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
   </div>
-</div>
+  <hr class="col-lg-10 border"/>
+  <div class="container">
+    <div class="list-group">
+      {% for proj in site.data.projects %}
+        <a href="{{ proj.link | relative_url }}" class="list-group-item list-group-item-action">
+          <span class="icon-{{ proj.type | downcase }}"></span> <strong>{{ proj.name }}</strong> <span class="text-muted">{{ proj.description }}</span>
+          <span class="float-right">
+            {% for lang in proj.languages %}
+              <span class="badge badge-pill badge-{{ lang | downcase }}">{{ lang }}</span>
+            {% endfor %}
+          </span>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+  <hr class="col-lg-10 border"/>
+</main>
