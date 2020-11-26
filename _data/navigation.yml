@@ -3,9 +3,15 @@
 - name: About
   link: /about.html
 - name: Projects
-  link: /projects/
+  link: /projects
   dropdownitems:
+    - name: Custom Die Roller
+      link: /customdieroller.html
+    - name: RooScout
+      link: /rooscout.html
     - name: DiceKit
-      link: /projects/dicekit.html
+      link: /dicekit.html
     - name: SimpleSwiftServer
-      link: /projects/simpleswiftserver.html
+      link: /simpleswiftserver.html
+    - name: helpme
+      link: /helpme.html

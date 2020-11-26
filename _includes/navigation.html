@@ -18,10 +18,10 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown{{ item.name | join: " " }}">
               {% for subitem in item.dropdownitems %}
-                <a class="dropdown-item" href="{{ subitem.link | relative_url }}">{{ subitem.name }}{% if page.url == subitem.link %}<span class="sr-only"> (current)</span>{% endif %}</a>
+                <a class="dropdown-item" href="{{ item.link | append: subitem.link | relative_url }}">{{ subitem.name }}{% if page.url == subitem.link %}<span class="sr-only"> (current)</span>{% endif %}</a>
               {% endfor %}
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="{{ item.link | relative_url }}">All {{ item.name | downcase }}{% if page.url == item.link %}<span class="sr-only"> (current)</span>{% endif %}</a>
+              <a class="dropdown-item" href="{{ item.link | append: "/" | relative_url }}">All {{ item.name | downcase }}{% if page.url == item.link %}<span class="sr-only"> (current)</span>{% endif %}</a>
             </div>
           </li>
         {% else %}
