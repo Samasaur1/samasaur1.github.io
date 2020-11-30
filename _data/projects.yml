@@ -4,6 +4,7 @@
   description: Make mobile dice rolling easy. Available on the iOS App Store.
   languages: Swift
   type: app
+  appstore_url: https://apps.apple.com/us/app/custom-die-roller/id1521541808
 - name: SimpleSwiftServer
   repo_url: https://github.com/Samasaur1/SimpleSwiftServer
   link: /projects/simpleswiftserver.html

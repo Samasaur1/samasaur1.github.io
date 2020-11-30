@@ -3,11 +3,6 @@ layout: default
 ---
 <div class="container-fluid">
   <div class="row pt-3">
-    {% comment %}{% raw %}
-    {% assign pn = page.name | split: "." | first %}{% for proj in site.data.projects %}{% assign lc = proj.name | downcase %}{% if pn == lc %}
-    This new version of the Liquid check (that iterates through all projects for a matching one) should be better overall (less likelihood for error)
-    in addition to working with names that have spaces in them. (otherwise, I could have used join)
-    {% endraw %}{% endcomment %}
     {% assign pn = page.name %}{% for proj in site.data.projects %}{% assign lc = proj.link | split: "/" | last %}{% if pn == lc %}
     <div class="col-auto order-1 order-md-2">
       <div class="project-sidebar p-3">
@@ -18,12 +13,43 @@ layout: default
           {% endif %}
         </h2>
         <p>{{ proj.description }}</p>
-        <span class="icon-{{proj.type}}"></span> {{ proj.type | capitalize }}
+        {% if proj.appstore_url %}
+          <span id="project-type-click-target" class="border border-dark p-1 rounded-lg"><span class="icon-{{proj.type}}"></span> {{ proj.type | capitalize }}</span>
+        {% else %}
+          <span class="icon-{{proj.type}}"></span> {{ proj.type | capitalize }}
+        {% endif %}
         <span class="float-right">
           {% for lang in proj.languages %}
             <span class="badge badge-pill badge-{{ lang | downcase }}">{{ lang }}</span>
           {% endfor %}
         </span>
+        {% if proj.appstore_url %}
+          <div class="hidden-transition" id="appstore-get-hidden">
+            <br/>
+            <a href="{{proj.appstore_url}}"><img src="/assets/images/appstore-get-ios.svg"/></a>
+            <script type="text/javascript">
+              var btn = document.getElementById('project-type-click-target');
+              var hint = document.getElementById('appstore-get-hidden');
+              var height = hint.clientHeight;
+              hint.style.height = '0px';
+              hint.style.visibility = 'hidden';
+
+              btn.addEventListener('click', function(){
+                if(hint.style.visibility == 'hidden'){
+                  hint.style.visibility = 'visible';
+                  //hint.style.opacity = '1';
+                  hint.style.height = height + 'px';
+                }
+                else{
+                  hint.style.visibility = 'hidden';
+                  //hint.style.opacity = '0';
+                  hint.style.height = '0';
+                }
+
+              });
+            </script>
+          </div>
+        {% endif %}
       </div>
     </div>
     {% endif %}{% endfor %}

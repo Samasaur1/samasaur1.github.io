@@ -18,6 +18,7 @@
   background-color: #F18E33;
   color: #ffffff;
 }
+
 %icon {
   display: inline-block;
   content: "";
@@ -53,8 +54,14 @@
   background-image: url("/assets/images/appstore.svg");
   // https://codepen.io/sosuke/pen/Pjoqqp (filtering svg into desired color)
 }
+
 .project-sidebar {
   width: 23em;
   background-color: lightgray;
   border-radius: 1em;
+}
+
+.hidden-transition {
+  transition: height 1s, width 1s, padding 1s, visibility 1s, opacity 0.5s ease-out;
+  overflow: hidden;
 }
