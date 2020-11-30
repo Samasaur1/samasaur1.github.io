@@ -24,21 +24,37 @@
   width:1em;
   height:1em;
   margin-bottom: -2px;
+  background-repeat: no-repeat;
+  background-position: left top;
 }
 .icon-library {
   @extend %icon;
-  background: url("/assets/images/package.svg") left top;
+  background-image: url("/assets/images/package.svg");
 }
 .icon-executable {
   @extend %icon;
-  background: url("/assets/images/terminal.svg") left top;
+  background-image: url("/assets/images/terminal.svg");
 }
 //icon-github from https://fontawesome.com/icons/github?style=brands
+// license: https://fontawesome.com/license
 .icon-github {
   @extend %icon;
-  background: url("/assets/images/github.svg") left top;
+  background-image: url("/assets/images/github.svg");
+  margin-bottom: -3px;
 }
 .icon-app {
   @extend %icon;
-  background: url("/assets/images/app.svg") left top;
+  background-image: url("/assets/images/app.svg");
+}
+//icon-appstore from https://fontawesome.com/icons/app-store-ios?style=brands
+// license: https://fontawesome.com/license
+.icon-appstore {
+  @extend %icon;
+  background-image: url("/assets/images/appstore.svg");
+  // https://codepen.io/sosuke/pen/Pjoqqp (filtering svg into desired color)
+}
+.project-sidebar {
+  width: 23em;
+  background-color: lightgray;
+  border-radius: 1em;
 }
