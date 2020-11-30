@@ -1,5 +1,5 @@
 - name: Custom Die Roller
-  repo_url: null;
+  repo_url: null
   link: /projects/customdieroller.html
   description: Make mobile dice rolling easy. Available on the iOS App Store.
   languages: Swift
