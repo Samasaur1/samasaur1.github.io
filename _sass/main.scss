@@ -65,3 +65,21 @@
   transition: height 1s, width 1s, padding 1s, visibility 1s, opacity 0.5s ease-out;
   overflow: hidden;
 }
+
+@font-face{
+    font-family: 'JetBrains Mono';
+    src: url('https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/fonts/webfonts/JetBrainsMono-Regular.woff2') format('woff2'),
+         url('https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/fonts/ttf/JetBrainsMono-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+pre, code, kbd {
+   font-family:'JetBrains Mono';
+}
+
+pre {
+  padding: 1rem;
+  border-radius: .25rem;
+  background-color: lightgray;
+}

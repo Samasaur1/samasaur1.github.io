@@ -51,6 +51,26 @@ layout: default
           </div>
         {% endif %}
       </div>
+      {% if page.sidebar %}
+      <div style="width:23em;" class="p-3">
+        <ol>
+          {% for child in page.sidebar %}
+            <li>
+              <a href="#{{child.title | split: " " | join: "-" | downcase}}">{{child.title}}</a>
+              {% if child.children %}
+                <ol>
+                  {% for subchild in child.children %}
+                    <li>
+                      <a href="#{{subchild.title | split: " " | join: "-" | downcase}}">{{subchild.title}}</a>
+                    </li>
+                  {% endfor %}
+                </ol>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ol>
+      </div>
+      {% endif %}
     </div>
     {% endif %}{% endfor %}
     <div class="col order-2 order-md-1">
