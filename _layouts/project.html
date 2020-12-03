@@ -27,6 +27,7 @@ layout: default
           <div class="hidden-transition" id="appstore-get-hidden">
             <br/>
             <a href="{{proj.appstore_url}}"><img src="/assets/images/appstore-get-ios.svg"/></a>
+            <span class="float-right" id="appstore-rating-container"></span>
             <script type="text/javascript">
               var btn = document.getElementById('project-type-click-target');
               var hint = document.getElementById('appstore-get-hidden');
@@ -45,8 +46,31 @@ layout: default
                   //hint.style.opacity = '0';
                   hint.style.height = '0';
                 }
-
               });
+
+              let url="{{ proj.appstore_url }}";
+              let id = url.split("/").pop().substring(2);
+              url = "http://itunes.apple.com/lookup?id=" + id;
+              var appDataReceiver = function(response) {
+                window.appData = response["results"][0]; //now accessible as window.appData anywhere or appData from script tags.
+                let average = appData["averageUserRating"];
+                let currentAverage = appData["averageUserRatingForCurrentVersion"];
+                let rating = Math.max(average, currentAverage);
+                let el = document.getElementById("appstore-rating-container");
+                let full = Math.floor(rating);
+                let empty = Math.floor(5 - rating);
+                let half = 5 - (full + empty);
+                for (let i = 0; i < full; i++) {
+                  el.innerHTML += "<span class=\"icon-star-fill m-1\"></span>";
+                }
+                for (let i = 0; i < half; i++) {
+                  el.innerHTML += "<span class=\"icon-star-half m-1\"></span>";
+                }
+                for (let i = 0; i < empty; i++) {
+                  el.innerHTML += "<span class=\"icon-star-empty m-1\"></span>";
+                }
+              }
+              document.write("<script src=\"" + url + "&callback=appDataReceiver\"><\/script>");
             </script>
           </div>
         {% endif %}

@@ -54,6 +54,18 @@
   background-image: url("/assets/images/appstore.svg");
   // https://codepen.io/sosuke/pen/Pjoqqp (filtering svg into desired color)
 }
+.icon-star-fill {
+  @extend %icon;
+  background-image: url("/assets/images/star-fill.svg");
+}
+.icon-star-half {
+  @extend %icon;
+  background-image: url("/assets/images/star-half.svg");
+}
+.icon-star-empty {
+  @extend %icon;
+  background-image: url("/assets/images/star.svg");
+}
 
 .project-sidebar {
   width: 23em;
