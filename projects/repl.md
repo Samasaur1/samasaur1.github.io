@@ -21,18 +21,18 @@ To download Xcode, get it [from the Mac App Store](https://apps.apple.com/us/app
 Alternatively, download Swift [from Swift.org](https://swift.org/download/), using Homebrew, swiftenv, or via some other method.
 ##### [Homebrew](https://brew.sh/)
 Installation:
-```
-$ brew install Samasaur1/core/repl
-```
+<pre class="user-select-all">
+<code><span class="user-select-none">$ </span>brew install Samasaur1/core/repl</code></pre>
 Updating:
-```
-$ brew upgrade repl
-```
+<pre class="user-select-all">
+<code><span class="user-select-none">$ </span>brew upgrade repl</code></pre>
 ##### [Mint](https://github.com/yonaskolb/mint)
-Installation & updating:
-```
-$ mint install Samasaur1/REPL
-```
+Installation:
+<pre class="user-select-all">
+<code><span class="user-select-none">$ </span>mint install Samasaur1/REPL</code></pre>
+Updating:
+<pre class="user-select-all">
+<code><span class="user-select-none">$ </span>mint install REPL</code></pre>
 ##### Manual Install
 Installation & updating:
 ```
@@ -81,16 +81,13 @@ Exiting REPL
   which means it will always look as it does in the examples above.
   This means that even if your normal prompt is this: `hostname:~/path/to/cwd username$`, in REPL it will show up like this:
   <code><strong><span class="text-danger">[username]</span><span class="text-primary">(~/path/to/cwd)</span><span class="text-success">$ REPLcommand</span></strong></code>.
-* Visit the <a href="https://github.com/Samasaur1/REPL/issues">issues</a> page to see the status of these issues.
+* Visit the [issues](https://github.com/Samasaur1/REPL/issues) page to see the status of these issues.
 
 ### Uninstall
 REPL doesn't leave anything behind, so you can use the normal uninstall method:
-```
-$ brew uninstall repl
-```
-```
-$ mint uninstall Samasaur1/REPL
-```
-```
-$ sudo rm /usr/local/bin/repl
-```
+<pre class="user-select-all">
+<code><span class="user-select-none">$ </span>brew uninstall repl</code></pre>
+<pre class="user-select-all">
+<code><span class="user-select-none">$ </span>mint uninstall REPL</code></pre>
+<pre class="user-select-all">
+<code><span class="user-select-none">$ </span>sudo rm /usr/local/bin/repl</code></pre>
