@@ -55,8 +55,8 @@ layout: default
                 let currentAverage = appData["averageUserRatingForCurrentVersion"];
                 let rating = Math.max(average, currentAverage);
                 let el = document.getElementById("appstore-rating-container");
-                let full = Math.floor(rating);
-                let empty = Math.floor(5 - rating);
+                let full = Math.floor(rating + 0.25);
+                let empty = Math.floor((5 - rating) + 0.25);
                 let half = 5 - (full + empty);
                 for (let i = 0; i < full; i++) {
                   el.innerHTML += "<span class=\"icon-star-fill m-1\"></span>";
