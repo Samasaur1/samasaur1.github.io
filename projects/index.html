@@ -36,9 +36,15 @@ title: Samasaur1 | All Projects
   </div>
   <hr class="col-lg-10 border"/>
   <div class="container">
+    <select id="filterer" onchange="filterer_filter();">
+      <option value="item" selected>All</option>
+      <option value="app">App</option>
+      <option value="executable">Executable</option>
+      <option value="library">Library</option>
+    </select>
     <div class="list-group">
       {% for proj in site.data.projects %}
-        <a href="{{ proj.link | relative_url }}" class="list-group-item list-group-item-action">
+        <a href="{{ proj.link | relative_url }}" class="list-group-item list-group-item-action filterer-item filterer-{{proj.type | downcase}} hidden-transition">
           <span class="icon-{{ proj.type | downcase }}"></span> <strong>{{ proj.name }}</strong> <span class="text-muted">{{ proj.description }}</span>
           <span class="float-right">
             {% for lang in proj.languages %}
@@ -48,6 +54,28 @@ title: Samasaur1 | All Projects
         </a>
       {% endfor %}
     </div>
+    <script type="text/javascript">
+      var filtererItemHeight = document.querySelector(".filterer-item").clientHeight;
+      var filtererItemPadding = document.querySelector(".filterer-item").style.padding;
+      var filterer_filter = function() {
+        let value = document.getElementById("filterer").value;
+        let toHide = document.querySelectorAll(".filterer-item:not(.filterer-" + value + ")");
+        let toShow = document.querySelectorAll(".filterer-" + value);
+        for(let i = 0; i < toHide.length; i++) {
+          toHide[i].style.visibility = "hidden";
+          toHide[i].style.height = "0px";
+          toHide[i].style.padding = "0px";
+        }
+        for (let i = 0; i < toShow.length; i++) {
+          toShow[i].style.visibility = "visible";
+          toShow[i].style.height = filtererItemHeight + "px";
+          toShow[i].style.padding = filtererItemPadding;
+        }
+      }
+      // You should **NOT** use this, but it was impressive enough that I wanted to get it in Git as a comment.
+      // It selects a span with a class starting with "icon-" that does not have the class "icon-app" within an <a class="list-group-item list-group-item-action"> within a <div class="list-group"> within a <div class="container">
+      // document.querySelectorAll("div.container div.list-group a.list-group-item.list-group-item-action span[class^=\"icon-\"]:not(.icon-app)")
+    </script>
   </div>
   <hr class="col-lg-10 border"/>
 </main>
