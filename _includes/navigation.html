@@ -37,9 +37,17 @@
         {% endif %}
       {% endfor %}
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <form class="form-inline my-2 my-lg-0" action="{{ "search.html" | relative_url }}" method="GET">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="search-field" name="q">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
+    <script type="text/javascript">
+      window.addEventListener("keydown", function(e){
+        if ((e.ctrlKey || e.metaKey) && e.keyCode === 70) {
+          e.preventDefault();
+          document.getElementById("search-field").focus();
+        }
+      });
+    </script>
   </div>
 </nav>
