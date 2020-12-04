@@ -36,12 +36,17 @@ title: Samasaur1 | All Projects
   </div>
   <hr class="col-lg-10 border"/>
   <div class="container">
-    <select id="filterer" onchange="filterer_filter();">
-      <option value="item" selected>All</option>
-      <option value="app">App</option>
-      <option value="executable">Executable</option>
-      <option value="library">Library</option>
-    </select>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="filterer">Filter by type:</label>
+      </div>
+        <select id="filterer" onchange="filterer_filter();" class="custom-select">
+          <option value="item" selected>All</option>
+          <option value="app">Apps</option>
+          <option value="executable">Executables</option>
+          <option value="library">Libraries</option>
+        </select>
+    </div>
     <div class="list-group">
       {% for proj in site.data.projects %}
         <a href="{{ proj.link | relative_url }}" class="list-group-item list-group-item-action filterer-item filterer-{{proj.type | downcase}} hidden-transition">
@@ -72,9 +77,6 @@ title: Samasaur1 | All Projects
           toShow[i].style.padding = filtererItemPadding;
         }
       }
-      // You should **NOT** use this, but it was impressive enough that I wanted to get it in Git as a comment.
-      // It selects a span with a class starting with "icon-" that does not have the class "icon-app" within an <a class="list-group-item list-group-item-action"> within a <div class="list-group"> within a <div class="container">
-      // document.querySelectorAll("div.container div.list-group a.list-group-item.list-group-item-action span[class^=\"icon-\"]:not(.icon-app)")
     </script>
   </div>
   <hr class="col-lg-10 border"/>
