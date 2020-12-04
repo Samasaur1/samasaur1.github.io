@@ -95,3 +95,82 @@ pre {
   border-radius: .25rem;
   background-color: lightgray;
 }
+
+.search-highlight {
+  background-color: yellow;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+kbd .search-highlight {
+  color: black;
+}
+
+.search-highlight.search-highlight-current {
+  background-color: orange;
+  font-weight: bold;
+}
+
+.search-highlight-search {
+    visibility: hidden;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    padding:10px 12px
+}
+
+.search-highlight-search .term {
+    width: 200px;
+    text-overflow: ellipsis;
+    overflow-y: hidden;
+    white-space: nowrap;
+    font-size: 14px;
+    padding:3px 0 0
+}
+
+.search-highlight-search .meta {
+    display: flex;
+    flex:0 0 auto
+}
+
+.search-highlight-search .count {
+    padding: 4px 10px 0;
+    color: #828282;
+    font-size:12px
+}
+
+.search-highlight-search .controls {
+    border-left: 1px solid #828282;
+    padding-left:10px
+}
+
+.search-highlight-search .controls button {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    color: #424242;
+    font-weight: 700;
+    font-size: 18px;
+    margin:0 2px
+}
+
+.search-highlight-search .controls button:hover {
+    background-color:#e8e8e8
+}
+
+@media screen and (max-width: 800px) {
+    .search-highlight-search {
+        top:72px
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .search-highlight-search {
+        right: 10px;
+        left:10px
+    }
+}

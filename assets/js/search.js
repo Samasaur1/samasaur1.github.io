@@ -13,17 +13,6 @@ var searchIndex = lunr(function() {
 });
 
 
-function getQueryVariable(variable) {
-  var query = window.location.search.substring(1);
-  var vars = query.split("&");
-  for (var i = 0; i < vars.length; i++) {
-      var pair = vars[i].split("=");
-      if (pair[0] === variable) {
-          return decodeURIComponent(pair[1].replace(/\+/g, "%20"));
-      }
-  }
-}
-
 var searchTerm = getQueryVariable("q");
 var results = searchIndex.search(searchTerm);
 var resultPages = results.map(function (match) {
@@ -31,11 +20,34 @@ var resultPages = results.map(function (match) {
 });
 
 
+function formatContent(content, searchTerm) {
+    var termIdx = content.toLowerCase().indexOf(searchTerm.toLowerCase());
+    if (termIdx >= 0) {
+        var startIdx = Math.max(0, termIdx - 140);
+        var endIdx = Math.min(content.length, termIdx + searchTerm.length + 140);
+        var trimmedContent = (startIdx === 0) ? "" : "&hellip;";
+        trimmedContent += content.substring(startIdx, endIdx);
+        trimmedContent += (endIdx >= content.length) ? "" : "&hellip;"
+
+        var highlightedContent = trimmedContent.replace(new RegExp(searchTerm, "ig"), function matcher(match) {
+            return "<strong>" + match + "</strong>";
+        });
+
+        return highlightedContent;
+    }
+    else {
+        var emptyTrimmedString = content.substr(0, 280);
+        emptyTrimmedString += (content.length < 280) ? "" : "&hellip;";
+        return emptyTrimmedString;
+    }
+}
+
+
 resultsString = "";
 resultPages.forEach(function (r) {
     resultsString += "<li>";
     resultsString +=   "<a class='result' href='" + r.url + "?q=" + searchTerm + "'><h3>" + r.title + "</h3></a>";
-    resultsString +=   "<div class='snippet'>" + r.content.substring(0, 200) + "</div>";
+    resultsString +=   "<div class='snippet'>" + formatContent(r.content, searchTerm) + "</div>";
     resultsString += "</li>"
 });
 document.querySelector("#search-results").innerHTML = resultsString;
