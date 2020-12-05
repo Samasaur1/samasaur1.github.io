@@ -34,6 +34,7 @@ function formatContent(content, searchTerm) {
         });
 
         return highlightedContent;
+        //TODO: https://getbootstrap.com/docs/4.5/components/breadcrumb/
     }
     else {
         var emptyTrimmedString = content.substr(0, 280);
