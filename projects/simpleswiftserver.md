@@ -70,7 +70,7 @@ OVERVIEW: Host a little server.
 This command lets you host multiple different types of servers on your local
 machine, accessible to anyone on the network.
 
-USAGE: server [--port <port>] [--browse] [--file] [--webserver] [--html] [<path>]
+USAGE: server [--port <port>] [--browse] [--file] [--webserver] [--html] [<path>] [--debug]
 
 ARGUMENTS:
   <path>                  The path to the file/directory (default: .)
@@ -79,6 +79,7 @@ OPTIONS:
   --port <port>           The port for the server to run on (default: 1234)
   --browse/--file/--webserver/--html
                           The server mode (default: directoryBrowser)
+  --debug                 Whether or not to log incoming requests
   --version               Show the version.
   -h, --help              Show help information.
 ```
@@ -121,7 +122,8 @@ Others can do so by going to "10.0.1.83:1337" in a browser
 
 ###### Notes:
 * SimpleSwiftServer has plans for more modes to come (chat). [Create an issue](https://github.com/Samasaur1/SimpleSwiftServer/issues/new/choose) to request another mode.
-* SimpleSwiftServer does not output received requests. This isn't a bug — it was a deliberate decision — but there's [an issue open](https://github.com/Samasaur1/SimpleSwiftServer/issues/8) to add a `--debug` flag to log some of this information. If you'd like that, please say so.
+* <del>SimpleSwiftServer does not output received requests. This isn't a bug — it was a deliberate decision — but there's [an issue open](https://github.com/Samasaur1/SimpleSwiftServer/issues/8) to add a `--debug` flag to log some of this information. If you'd like that, please say so.</del>
+  * This was resolved in version 4.2.0
 * Visit the [issues](https://github.com/Samasaur1/SimpleSwiftServer/issues) page to see the status of these issues.
 
 ### Uninstall
