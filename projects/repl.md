@@ -12,6 +12,7 @@ sidebar:
   - title: Uninstall
 ---
 # REPL
+Prefix any command with a given string, or run a series of subcommands.
 ### Install
 ##### Requirements
 REPL does not come pre-compiled, so you'll need Swift 5.0 or later in order to build it. (This version of Swift comes with Xcode 10.2 or later).
