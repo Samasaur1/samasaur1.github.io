@@ -1,7 +1,9 @@
 ---
 layout: default
-title: About
+title: Samasaur1 | About
 ---
-# About page
+# About me
+I like to read, and I like to code. I also like strategy games — both board games and video games.
 
-This page tells you a little bit about me.
+I do *not* like web development. I knew that before coming into this project, and yet here I am overdoing it.
+# ¯\\\_(ツ)\_/¯
