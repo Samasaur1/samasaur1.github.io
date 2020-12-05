@@ -50,7 +50,7 @@ layout: default
 
               let url="{{ proj.appstore_url }}";
               let id = url.split("/").pop().substring(2);
-              url = "http://itunes.apple.com/lookup?id=" + id;
+              url = "https://itunes.apple.com/lookup?id=" + id;
               var appDataReceiver = function(response) {
                 window.appData = response["results"][0]; //now accessible as window.appData anywhere or appData from script tags.
                 let average = appData["averageUserRating"];
