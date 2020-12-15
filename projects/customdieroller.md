@@ -9,7 +9,7 @@ sidebar:
     children:
       - title: Known Issues
 ---
-# Custom Die Roller <a href="{{proj.appstore_url}}"><img src="/assets/images/appstore-get-ios.svg"/></a>
+# Custom Die Roller <a href="https://apps.apple.com/us/app/custom-die-roller/id1521541808"><img src="/assets/images/appstore-get-ios.svg"/></a>
 ### About the app
 Ever out and about and you need some dice? Forgot your dice set when playing D&D? Custom Die Roller is an easy-to-use yet powerful way to roll some virtual dice. From a simple d6 to arbitrarily complex expressions in dice notation, the app can handle it all. Plus — visualize the probability distribution of your expression with the built-in bell curve!
 
