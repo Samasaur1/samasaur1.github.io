@@ -23,6 +23,8 @@ Quick and easy file sharing (direct download or directory browsing) and more.
 * You don't have to remember `HTTP` vs `Http` (better in Python 3)
 * No need to remember how to run the Python http module. `-m http`? `-m http.server`? `-m SimpleHTTPServer`? Which one goes with which version of Python?
 
+<br/>
+<span class="badge badge-primary" style="font-size:110%;">New</span> Use the `--debug` flag to log all incoming requests.
 ### Install
 ##### Requirements
 SimpleSwiftServer does not come pre-compiled, so you'll need Swift 5.0 or later in order to build it. (This version of Swift comes with Xcode 10.2 or later).
