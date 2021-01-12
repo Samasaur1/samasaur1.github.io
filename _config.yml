@@ -1,0 +1,5 @@
+collections:
+  posts:
+    permalink: /blog/:title
+
+#excerpt_separator: <!--more-->

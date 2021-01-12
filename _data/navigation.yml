@@ -15,3 +15,5 @@
       link: /simpleswiftserver.html
     - name: helpme
       link: /helpme.html
+- name: Blog
+  link: /blog
