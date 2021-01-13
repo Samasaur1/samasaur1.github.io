@@ -1,0 +1,4 @@
+- name: swift
+  class: badge-swift
+- name: jekyll
+  class: badge-danger

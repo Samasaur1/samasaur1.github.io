@@ -8,8 +8,13 @@ layout: default
   {% if page.tags[0] %}
     &nbsp;&nbsp;
     {% for tag in page.tags %}
-      <a href="{{ "/tags/" | append: tag | relative_url }}" class="badge badge-info">{{ tag }}</a>
-      {% comment %}{% unless forloop.last %}, {% endunless %}{% endcomment %}
+      {% assign css-class = "badge-info" %}
+      {% for site_tag in site.data.tags %}
+        {% if site_tag.name == tag %}
+          {% assign css-class = site_tag.class %}
+        {% endif %}
+      {% endfor %}
+      <a href="{{ "/tags/" | append: tag | relative_url }}" class="badge {{ css-class }}">{{ tag }}</a>
     {% endfor %}
   {% endif %}
 </p>
