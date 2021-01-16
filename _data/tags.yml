@@ -2,3 +2,5 @@
   class: badge-swift
 - name: jekyll
   class: badge-danger
+- name: java
+  class: badge-java
