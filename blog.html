@@ -40,7 +40,7 @@ title: Samasaur1 | Blog
       {% assign css-class = site_tag.class %}
     {% endif %}
   {% endfor %}
-  <h4 class="badge {{ css-class }}">{{ tag[0] }}</h4>
+  <a href="{{ "/tags/" | append: tag[0] | relative_url }}" class="badge {{ css-class }}">{{ tag[0] }}</a>
   <ul>
     {% for post in tag[1] %}
       <li><a href="{{ post.url }}">{{ post.title }}</a></li>
