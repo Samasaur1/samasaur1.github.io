@@ -42,10 +42,15 @@
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
     <script type="text/javascript">
-      window.addEventListener("keydown", function(e){
-        if ((e.ctrlKey || e.metaKey) && e.keyCode === 70) { //⌘F or ⌃F (find on page)
-          e.preventDefault();
-          document.getElementById("search-field").focus();
+      window.addEventListener("keydown", function(e) {
+        // console.log(e.keyCode);
+        if (e.keyCode === 191) {// use the / key
+          if (document.activeElement === document.getElementById("search-field")) {
+            //console.log("Selected")
+          } else {
+            e.preventDefault();
+            document.getElementById("search-field").focus();
+          }
         }
       });
     </script>
