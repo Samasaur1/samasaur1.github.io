@@ -2,7 +2,14 @@
 layout: default
 title: Samasaur1 | Home
 ---
-# Samasaur1
-This website is a work in progress. The [project list page]({{ "/projects" | relative_url }}) is pretty complete, though.
+<div style="padding: 1.5em;">
 
-This site was made with Jekyll, Bootstrap, code snippets off the Internet and StackOverflow, blood, sweat, and tears.
+<h1>Samasaur1</h1>
+<p>
+This website is a work in progress. The <a href="{{ "/projects" | relative_url }}">project list page</a> is pretty complete, though.
+</p>
+<p>
+You can read more about me on <a href="{{ "/about" | relative_url }}">the about page</a>.
+</p>
+
+</div>
