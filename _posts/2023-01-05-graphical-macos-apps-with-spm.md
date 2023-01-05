@@ -49,7 +49,7 @@ Slideshow.app/
 ```
 (yes, that folder is called `_CodeSignature`). In `Contents/MacOS` we see the actual executable that is run, in `Contents/_CodeSignature` the signature for the app is placed (we'll sign the app later in this article), and the `Contents/Info.plist` XML file provides things like the app's bundle identifier, icon, version, and display name (it can specify a lot more, but I went with the minimal `Info.plist` that worked).
 
-My `Info.list` ended up as:
+My `Info.plist` ended up as:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -86,6 +86,8 @@ You can now double-click Slideshow.app and it will run! In the specific case of 
 fd . ~/Desktop/Files/Pictures/ -e png -0 > f.f
 open Slideshow.app --stdin f.f --stdout g.g --args 3 3 3
 ```
+
+And of course, if your app doesn't require a TTY or standard input, you should just be able to double-click it normally.
 
 ***
 
