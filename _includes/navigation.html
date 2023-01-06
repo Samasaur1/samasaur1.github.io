@@ -34,6 +34,11 @@
               <a class="nav-link" href="{{ item.link | relative_url }}">{{ item.name }}</a>
             </li>
           {% endif %}
+          {% if item.name == "Blog" %}
+            <a href="{{ "/feed.xml" | relative_url }}">
+                <img src="{{ "/assets/images/feed-icon-gray.png" | relative_url }}" style="height: 20px; width: 20px; position: relative; top: 8px;"/>
+            </a>
+          {% endif %}
         {% endif %}
       {% endfor %}
     </ul>

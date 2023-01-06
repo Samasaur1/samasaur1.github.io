@@ -2,4 +2,7 @@ collections:
   posts:
     permalink: /blog/:title
 
+plugins:
+  - jekyll-feed
+
 #excerpt_separator: <!--more-->

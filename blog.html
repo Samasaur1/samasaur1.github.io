@@ -4,6 +4,12 @@ title: Samasaur1 | Blog
 ---
 <div style="padding: 1.5em;">
 <h1>Latest Posts</h1>
+<!-- <a href="{{ "/feed.xml" | relative_url }}">
+    <p>RSS/Atom feed <img src="{{ "/assets/images/feed-icon.png" | relative_url }}"/></p>
+</a> -->
+<a style="position: relative; top: -44px; float: right;" href="{{ "feed.xml" | relative_url }}">
+    <img src="{{ "/assets/images/feed-icon.png" | relative_url }}"/>
+</a>
 
 <ul>
   {% for post in site.posts %}
@@ -48,3 +54,8 @@ title: Samasaur1 | Blog
   </ul>
 {% endfor %}
 </div>
+<hr style="width: 90%;"/>
+<footer style="padding: 5px; text-align: center;">
+    <a href="{{ "/feed.xml" | relative_url }}" style="color: gray">RSS/Atom feed</a>
+</footer>
+<!-- <footer>rss</footer> -->
