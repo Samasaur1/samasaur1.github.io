@@ -4,6 +4,7 @@ title: Setting up SyncTeX with Neovim and Skim
 tags:
 - neovim
 - latex
+- rust
 ---
 I have... a lot of feelings towards Neovim, but putting those aside for the time being, it's still my preferred LaTeX editor on my Mac.
 What my LaTeX editing setup was missing[^1], though, was the ability to "jump to" a location in the output PDF from the code, or to jump to a location in the code by clicking on the PDF.

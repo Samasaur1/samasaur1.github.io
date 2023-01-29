@@ -4,6 +4,7 @@ title: Graphical macOS Apps with the Swift Package Manager
 tags:
 - swift
 - swift package manager
+- macos
 ---
 The [Swift Package Manager](https://www.swift.org/package-manager/) (SPM) is pretty great. You can use it to create libraries, command-line tools, and (since Xcode 11), SPM libraries can be used in apps submitted to Apple App Stores. However, it's not as trivial to make _true_ graphical apps without using Xcode, even if they're written in Swift using SPM.
 
