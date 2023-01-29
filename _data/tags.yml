@@ -4,3 +4,13 @@
   class: badge-danger
 - name: java
   class: badge-java
+- name: rust
+  class: badge-rust
+- name: tex
+  class: badge-tex
+- name: latex
+  class: badge-tex
+- name: kotlin
+  class: badge-kotlin
+- name: gradle
+  class: badge-gradle
