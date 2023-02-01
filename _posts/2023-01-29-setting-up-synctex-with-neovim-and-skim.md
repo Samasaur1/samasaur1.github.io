@@ -41,12 +41,6 @@ local opts = { noremap = true, silent = true }
 
 vim.api.nvim_buf_set_keymap(0, 'n', '<leader>lj', ":silent !/Applications/Skim.app/Contents/SharedSupport/displayline <C-r>=line('.')<CR> %<.pdf<CR>", opts)
 ```
-As I'm actively writing this blog post, though, I noticed that `silent` is set in both the options and the command itself, so I'm changing the contents of that file to
-```lua
-local opts = { noremap = true, silent = true }
-
-vim.api.nvim_buf_set_keymap(0, 'n', '<leader>lj', "!/Applications/Skim.app/Contents/SharedSupport/displayline <C-r>=line('.')<CR> %<.pdf<CR>", opts)
-```
 Tested it a few times with a few documents and a few lines, and it works! yay!
 
 ***
