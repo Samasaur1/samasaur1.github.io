@@ -71,3 +71,9 @@
   description: OpenSCAD in Swift, allowing autocompletion, syntax highlighting, and code reuse.
   languages: Swift
   type: library
+- name: RssBot
+  repo_url: https://github.com/Samasaur1/rssbot
+  link: /projects/rssbot.html
+  description: A Discord bot that watches RSS/Atom feeds, and posts them to user-configurable channels.
+  languages: Python
+  type: executable
