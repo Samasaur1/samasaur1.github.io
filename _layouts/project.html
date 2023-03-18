@@ -80,12 +80,12 @@ layout: default
         <ol>
           {% for child in page.sidebar %}
             <li>
-              <a href="#{{child.title | split: " " | join: "-" | downcase}}">{{child.title}}</a>
+              <a href="#{{child.title | split: " " | join: "-" | remove: "(" | remove: ")" | remove: "," | downcase}}">{{child.title}}</a>
               {% if child.children %}
                 <ol>
                   {% for subchild in child.children %}
                     <li>
-                      <a href="#{{subchild.title | split: " " | join: "-" | downcase}}">{{subchild.title}}</a>
+                      <a href="#{{subchild.title | split: " " | join: "-" | remove: "(" | remove: ")" | remove: "," | downcase}}">{{subchild.title}}</a>
                     </li>
                   {% endfor %}
                 </ol>
