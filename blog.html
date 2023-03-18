@@ -22,7 +22,7 @@ title: Samasaur1 | Blog
         <span style="font-size: 55%;">
           {% if post.tags[0] %}
             {% for tag in post.tags %}
-              {% assign css-class = "badge-info" %}
+              {% assign css-class = "badge-secondary" %}
               {% for site_tag in site.data.tags %}
                 {% if site_tag.name == tag %}
                   {% assign css-class = site_tag.class %}
@@ -40,7 +40,7 @@ title: Samasaur1 | Blog
 </ul>
 <h2>Posts By Tag</h2>
 {% for tag in site.tags %}
-  {% assign css-class = "badge-info" %}
+  {% assign css-class = "badge-secondary" %}
   {% for site_tag in site.data.tags %}
     {% if site_tag.name == tag[0] %}
       {% assign css-class = site_tag.class %}

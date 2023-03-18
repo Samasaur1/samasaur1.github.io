@@ -14,3 +14,7 @@
   class: badge-kotlin
 - name: gradle
   class: badge-gradle
+- name: python
+  class: badge-python
+- name: nixos
+  class: badge-nix
