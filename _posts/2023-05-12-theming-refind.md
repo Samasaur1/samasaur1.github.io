@@ -127,7 +127,7 @@ Note that the `showtools shutdown,hidden_tags` line must go AFTER the `include` 
 
 The other two issues were both missing icons. After some failures with Preview, and then some more with GIMP, here's what I got to work (and look good):
 
-1. Find an image. For ssytemd-boot, I took the "standalone logomark" from <https://brand.systemd.io>, while for NixOS, I found a version of the icon online. **Note: I specifically wanted SVGs of the images, to make coloring easier and to delay rasterization as long as possible in order to preserve resolution.**
+1. Find an image. For systemd-boot, I took the "standalone logomark" from <https://brand.systemd.io>, while for NixOS, I found a version of the icon online. **Note: I specifically wanted SVGs of the images, to make coloring easier and to delay rasterization as long as possible in order to preserve resolution.**
 2. Clean up the SVG. The nice thing about SVGs is that you can edit them directly, as text — I used Neovim. You'll want to remove any backgrounds, gradients, etc., and note all the colors that you want to replace. For example, here's the systemd-book logomark as I downloaded it:
 
     ```xml
@@ -141,7 +141,7 @@ The other two issues were both missing icons. After some failures with Preview, 
     </svg>
     ```
 
-    I removed the first path line, and noted the colors `#30D475` and `#201A26`. It was more work to clean up the NixOS logo I found, but the end goal is to have it look more or less like this.
+    I removed the first path line, and noted the colors `#30D475` and `#201A26`. It was more work to clean up the NixOS logo I found, but the end goal is to have it look more or less like the the systemd logo above.
 
 3. Replace the colors. I have the `sd` command installed, so it was as easy as (for the systemd example above) <kbd>sd '30D475' '4c4f69' file.svg; sd '201A26' '4c4f69' file.svg</kbd>. That's the color for the mocha flavor of catppuccin, if I recall correctly.
 4. Convert from SVG to PNG. I used the following ImageMagick command: <kbd>convert -background none file.svg -resize 256x256 -gravity center -extent 256x256 file.png</kbd>. This worked great for the systemd icon, but it made the NixOS icon too big. So instead I used <kbd>convert -background none file.svg -resize 170x170-gravity center -extent 256x256 file.png</kbd>, to keep the same canvas size (256x256) but shrink the actual image inside that canvas (adding more padding, essentially).
