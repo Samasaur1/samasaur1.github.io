@@ -21,3 +21,6 @@ brew keeps removing things
 macports has issues after major os upgrades (?)
 it turns out you _can_ have custom porfiles in macports!
 https://guide.macports.org/#development.local-repositories
+
+re: macports OS upgrade
+that was obviously not the _most_ fun i've ever had, but it wasn't the worst thing in the world, and i caught some ports that i no longer cared about, and some that needed to be upgraded, and i got a full cleanout out of it, so i'm happy.
