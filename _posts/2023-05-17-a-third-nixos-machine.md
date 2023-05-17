@@ -9,7 +9,7 @@ As I mentioned in the previous post, I have two set-up Mac Minis dual-booting Ni
 
 Turns out it was actually pretty easy. Here's what I did:
 
-1. Create entry for new machine in flake
+1. Create an entry for the new machine in my flake
 
     My NixOS configuration is [a "flake", which is an experimental feature of NixOS](https://nixos.wiki/wiki/Flakes). Essentially, it's a Git repo with the following `flake.nix` file (shown before adding the third machine):
 
