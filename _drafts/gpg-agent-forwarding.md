@@ -63,10 +63,31 @@ Host inky
 
 This is enough for it to work given some specific preconditions. If the directory `/run/user/1000/gnupg/` exists on the remote machine but there is no `S.gpg-agent` socket even though that is the location that the GPG agent will look for a socket (which means that the agent is not running on the remote machine), connecting via SSH _should_ forward the GPG agent and let you use your private keys.
 
-To make it so that `/run/user/1000/gnupg/` always exists, 
+To make it so that `/run/user/1000/gnupg/` always exists, I added `gpgconf --create-socketdir` to my `bashrc`. I don't have my NixOS machines set up with `home-manager` yet, and I haven't started messing with the `programs.bach.*shellInit` options, so I just put that as the last line in my actual `~/.bashrc` file.
 
-So that we succeed even if `S.gpg-agent` exists,
+So that we succeed even if `S.gpg-agent` exists, you can set `StreamLocalBindUnlink yes` in the sshd config. On NixOS, I simply modified my `common.nix` file in my flake:
 
-multiplexing issue
+```nix
+  services.openssh = {
+    enable = true;
+    settings = {
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
+    };
+    extraConfig = ''
+      StreamLocalBindUnlink yes
+    '';
+  };
+```
 
-issue i'm still haveing where if gpg is used on the remote machine when the agent forwarding is not set up (so the agenet starts locally), then it takes multiple connect-disconnects and some indeterminate amount of time for the forwarded agetnt to properly take priority
+I was also running into issues when I had multiple SSH connections to the same machine. If I SSHed in with connection 1, the agent would be correctly forwarded and I could use secret keys. If I then SSHed in with connection 2, I could use the agent on both connections. But if I closed connection 1 before connection 2[^1], then the forwarded agent would no longer be accessible on the remote machine, and attempting to use `gpg` would start a local agent. This was solved by enabling SSH multiplexing (post to come).
+
+[^1]: Or possibly vice versa, I don't remember. One way worked fine and the other way caused this issue.
+
+Finally, there is an issue that I'm still having where if `gpg` is used on the remote machine when the agent is not forwarded (e.g., when physically logging in, or when SSHing in from a machine that does not forward its agent), so that the agent starts locally, it takes multiple connect-disconnects and some indeterminate amount of time for the forwarded agent to properly take priority.
+
+***
+
+Useful sources:
+- <https://wiki.gnupg.org/AgentForwarding> (linked above as well)
+- <https://gist.github.com/TimJDFletcher/85fafd023c81aabfad57454111c1564d>
