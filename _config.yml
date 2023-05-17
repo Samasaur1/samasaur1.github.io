@@ -6,4 +6,13 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
+defaults:
+  - 
+    scope:
+      path: ""
+      # type: "posts"
+    values:
+      author: sam
+      # layout: default
+
 #excerpt_separator: <!--more-->
