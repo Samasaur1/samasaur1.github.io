@@ -4,5 +4,6 @@ collections:
 
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
 
 #excerpt_separator: <!--more-->
