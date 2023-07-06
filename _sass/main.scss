@@ -99,14 +99,14 @@
 }
 
 @font-face{
-    font-family: 'JetBrains Mono';
-    src: url('https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/fonts/ttf/JetBrainsMonoNL-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'JetBrains Mono';
+  src: url('https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/fonts/ttf/JetBrainsMonoNL-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
 pre, code, kbd {
-   font-family:'JetBrains Mono';
+  font-family:'JetBrains Mono';
 }
 
 pre {
@@ -117,4 +117,11 @@ pre {
 
 #post-main-content {
   padding: 1.5em;
+}
+
+blockquote {
+  margin-left: 1em;
+  border-left: 6px solid lightgray;
+  padding-left: 1em;
+  padding-top: 0.25em;
 }
