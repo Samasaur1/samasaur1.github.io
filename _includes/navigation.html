@@ -54,10 +54,17 @@
         // console.log(e.keyCode);
         if (e.keyCode === 191) {// use the / key
           if (document.activeElement === document.getElementById("search-field")) {
-            //console.log("Selected")
+            // console.log("'/' key pressed; search already selected");
           } else {
             e.preventDefault();
             document.getElementById("search-field").focus();
+          }
+        } else if (e.keyCode === 27) { // the escape key
+          if (document.activeElement === document.getElementById("search-field")) {
+            e.preventDefault();
+            document.activeElement.blur();
+          } else {
+            // console.log("Escape key pressed; search not selected");
           }
         }
       });
