@@ -2,7 +2,8 @@
   class: badge-swift
 - name: jekyll
   class: badge-danger
-  description: when i use jekyll
+  description: |-
+    the static site generator that powers this site. <a href="https://jekyllrb.com">jekyllrb.com</a>
 - name: java
   class: badge-java
 - name: rust
