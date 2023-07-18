@@ -1,0 +1,16 @@
+---
+layout: default
+---
+<h2>{{ page.title }}</h2>
+{% if page.description %}
+    {{ page.description }}
+{% endif %}
+<hr/>
+
+<ul>
+  {% for post in site.posts %}
+    {% if post.tags contains page.title %}
+      <li>{% include post.html tag="h4" %}</li>
+    {% endif %}
+  {% endfor %}
+</ul>
