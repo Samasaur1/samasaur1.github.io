@@ -1,13 +1,15 @@
 ---
 layout: post
 title: 'RssBot Bugfix 1: Reposting on Restart'
+date: 2023-03-16
+last_updated: 2023-07-18
 tags:
 - python
 - discord
 - rss
 - rssbot
 ---
-I published [my post on RssBot](https://samasaur1.github.io/blog/building-a-discord-rss-bot) two days ago. It worked successfully on that post — huzzah! — and everything else appeared to be working as well. However, when I stopped RssBot, moved it to a different directory on the server, and restarted it, it sent the post again.
+I published [my post on RssBot]({% post_url 2023-03-09-building-a-discord-rss-bot %}) two days ago. It worked successfully on that post — huzzah! — and everything else appeared to be working as well. However, when I stopped RssBot, moved it to a different directory on the server, and restarted it, it sent the post again.
 
 I actually saw this error a couple of days ago, but didn't have a chance to investigate immediately. That investigation took the form of running <kbd>export VERBOSE=1</kbd>, and then running RssBot again. The verbose logs showed that feeds were registering as having a new `etag` and last modified time, and most importantly, **that their previous entry was one entry behind**[^1].
 
