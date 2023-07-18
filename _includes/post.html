@@ -1,7 +1,7 @@
 <{{ include.tag | default: "h3" }}>
   <a href="{{ post.url }}">{{ post.title }}</a>&nbsp;
   <span style="font-size: 50%;">
-    <span class="text-muted">{{ post.date | date_to_string }}</span>
+    <span class="text-muted">{{ post.date | date_to_string }}&nbsp;</span>
   </span>
   <span style="font-size: 55%;">
     {% if post.tags[0] %}
@@ -19,6 +19,11 @@
       {% endfor %}
     {% endif %}
   </span>
+  {% if post.last_updated %}
+    <span style="font-size: 50%;">
+      <span class="text-muted">&nbsp;updated {{ post.last_updated | date_to_string }}</span>
+    </span>
+  {% endif %}
 </{{ include.tag | default: "h3" }}>
 
 {{ post.excerpt }}
