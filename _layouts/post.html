@@ -16,7 +16,8 @@ layout: default
           {% endif %}
         {% endif %}
       {% endfor %}
-      <a href="{{ "/tags/" | append: tag | relative_url }}" class="badge {{ css-class }}">{{ tag }}</a>
+      {% capture link %}/tags/{{ tag | replace: " ", "-" }}{% endcapture %}
+      <a href="{{ link | relative_url }}" class="badge {{ css-class }}">{{ tag }}</a>
     {% endfor %}
   {% endif %}
 </p>
