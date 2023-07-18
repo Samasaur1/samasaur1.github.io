@@ -2,9 +2,9 @@
 layout: default
 ---
 <div id="post-main-content">
-<h1 class="mb-0 pb-0">{{ page.title }}</h1>
-<p class="mt-0 pt-0 text-muted">
-{{ page.date | date_to_string }}
+  <h1 class="mb-0 pb-0">{{ page.title }}</h1>
+  <p class="mt-0 pt-0 text-muted">
+  {{ page.date | date_to_string }}
   {% if page.tags[0] %}
     &nbsp;&nbsp;
     {% for tag in page.tags %}
@@ -20,7 +20,10 @@ layout: default
       <a href="{{ link | relative_url }}" class="badge {{ css-class }}">{{ tag }}</a>
     {% endfor %}
   {% endif %}
-</p>
-<hr style="border: 1px solid;"/>
-{{ content }}
+  {% if page.last_updated %}
+    &nbsp;&nbsp;updated {{ page.last_updated | date_to_string }}
+  {% endif %}
+  </p>
+  <hr style="border: 1px solid;"/>
+  {{ content }}
 </div>
