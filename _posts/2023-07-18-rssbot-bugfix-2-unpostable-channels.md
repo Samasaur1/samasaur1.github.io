@@ -1,16 +1,16 @@
 ---
 layout: post
 title: 'RssBot Bugfix 2: Unpostable Channels'
+date: 2023-07-18
 tags:
 - python
 - discord
 - rss
 - rssbot
-- draft
 ---
-RssBot has mostly been working really well. However, every once in a while, it would just stop working. The worst part about this is that I wouldn't _notice_ until I restart the machine that it is on, incidentally restarting RssBot. This time, however, I caught it in the log, and I was determined to fix the issue.
+RssBot has mostly been working really well. However, every once in a while it would just stop posting. The worst part about this is that I wouldn't _notice_ until I restarted the machine that it is on, incidentally restarting RssBot. This time, however, I caught it in the log, and I was determined to fix the issue.
 
-I saw this in the rssbot log:
+I saw this in the rssbot log (`journalctl -u rssbot`):
 ```
 Jul 06 15:32:04 blinky rssbot-start[96745]: verbose: adding to list
 Jul 06 15:32:04 blinky rssbot-start[96745]: verbose: entry GPG Agent Forwarding
