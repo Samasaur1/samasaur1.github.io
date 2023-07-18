@@ -11,7 +11,9 @@ layout: default
       {% assign css-class = "badge-info" %}
       {% for site_tag in site.data.tags %}
         {% if site_tag.name == tag %}
-          {% assign css-class = site_tag.class %}
+          {% if site_tag.class %}
+            {% assign css-class = site_tag.class %}
+          {% endif %}
         {% endif %}
       {% endfor %}
       <a href="{{ "/tags/" | append: tag | relative_url }}" class="badge {{ css-class }}">{{ tag }}</a>

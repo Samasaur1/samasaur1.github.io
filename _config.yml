@@ -24,3 +24,5 @@ page_gen:
     template: tag
     dir: tags
     name: name
+    title_expr: |-
+      record.fetch("displayname", record["name"])

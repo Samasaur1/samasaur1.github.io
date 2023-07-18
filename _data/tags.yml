@@ -23,12 +23,17 @@
 - name: the blog
 - name: swift package manager
 - name: macos
+  displayname: macOS
+  description: |-
+    apple's desktop platform. my posts about it generally fall into one of two categories: tracking down bugs or doing complex configuration
 - name: neovim
 - name: sudo
 - name: shell
 - name: discord
 - name: rss
 - name: rssbot
+  description: |-
+    a discord bot that watches RSS/Atom feeds. find it on GitHub <a href="https://github.com/Samasaur1/rssbot">here</a>
 - name: refind
 - name: catppuccin
 - name: svg

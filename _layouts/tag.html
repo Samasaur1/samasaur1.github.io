@@ -1,16 +1,20 @@
 ---
 layout: default
 ---
-<h2>{{ page.title }}</h2>
-{% if page.description %}
-    {{ page.description }}
-{% endif %}
-<hr/>
-
-<ul>
-  {% for post in site.posts %}
-    {% if post.tags contains page.title %}
-      <li>{% include post.html tag="h4" %}</li>
-    {% endif %}
-  {% endfor %}
-</ul>
+<div id="tag-info">
+  <h2>{{ page.title }}</h2>
+  {% if page.description %}
+    <p class="pb-0 mb-0">{{ page.description }}</p>
+  {% endif %}
+</div>
+<hr class="mb-0 mt-0 pb-0 pt-0"/>
+<div id="tag-posts">
+  <h2>recent posts:</h2>
+  <ul>
+    {% for post in site.posts %}
+      {% if post.tags contains page._name %}
+        <li>{% include post.html tag="h4" %}</li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</div>
