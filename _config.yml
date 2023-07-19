@@ -26,3 +26,5 @@ page_gen:
     name: name
     title_expr: |-
       record.fetch("displayname", record["name"])
+
+timezone: America/Los_Angeles
