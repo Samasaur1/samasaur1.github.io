@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -x
+set -eux
 
 CHANGES=NO
 for DRAFT in _drafts/*
