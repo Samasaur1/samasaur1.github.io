@@ -1,5 +1,8 @@
 ---
 layout: post
+title: 'Redoing the Search Field'
+date: 2021-10-01 21:54 -0700
+last_updated: 2021-10-01 22:08 -0700
 tags:
   - the blog
 ---

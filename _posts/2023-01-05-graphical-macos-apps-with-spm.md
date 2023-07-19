@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Graphical macOS Apps with the Swift Package Manager
+date: 2023-01-05 14:07 -0500
 tags:
 - swift
 - swift package manager

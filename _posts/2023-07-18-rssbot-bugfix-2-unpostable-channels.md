@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'RssBot Bugfix 2: Unpostable Channels'
-date: 2023-07-18
+date: 2023-07-18 14:34 -0700
 tags:
 - python
 - discord

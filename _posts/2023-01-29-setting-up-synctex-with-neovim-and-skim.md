@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Setting up SyncTeX with Neovim and Skim
+date: 2023-01-29 12:24 -0800
+last_updated: 2023-02-01 15:22 -0800
 tags:
 - neovim
 - latex

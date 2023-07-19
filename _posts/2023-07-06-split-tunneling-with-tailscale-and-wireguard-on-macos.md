@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 'Split Tunneling with Tailscale and WireGuard on macOS'
+date: 2023-07-06 15:19 -0700
 tags:
 - macos
 - tailscale

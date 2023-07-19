@@ -4,7 +4,7 @@ layout: default
 <div id="post-main-content">
   <h1 class="mb-0 pb-0">{{ page.title }}</h1>
   <p class="mt-0 pt-0 text-muted">
-  {{ page.date | date_to_string }}
+  {{ page.date | date: "%d %b %Y %I:%M %p" }}
   {% if page.tags[0] %}
     &nbsp;&nbsp;
     {% for tag in page.tags %}
@@ -21,7 +21,7 @@ layout: default
     {% endfor %}
   {% endif %}
   {% if page.last_updated %}
-    &nbsp;&nbsp;updated {{ page.last_updated | date_to_string }}
+    &nbsp;&nbsp;updated {{ page.last_updated | date: "%d %b %Y %I:%M %p" }}
   {% endif %}
   </p>
   <hr style="border: 1px solid;"/>

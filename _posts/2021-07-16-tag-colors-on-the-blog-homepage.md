@@ -1,5 +1,7 @@
 ---
 layout: post
+title: 'Tag Colors on the Blog Homepage'
+date: 2021-07-16 17:44 -0400
 tags:
   - the blog
   - jekyll

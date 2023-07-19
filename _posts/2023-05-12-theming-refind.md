@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 'Theming rEFInd'
+date: 2023-05-12 21:50 -0700
 tags:
 - refind
 - catppuccin

@@ -1,10 +1,11 @@
 ---
 layout: post
+title: 'Setting Up A Blank 2021 FRC Project'
+date: 2021-01-16 16:08 -0500
 tags:
   - frc
   - gradle
   - java
-title: 'Setting Up A Blank 2021 FRC Project'
 ---
 Our FRC team, [AFS RooBotics](https://github.com/Roobotics-FRC), uses GradleRIO but not VS Code and the official plugins. We use the free educational version of IntelliJ, but that means that we need to set up our projects each year on our own. That's complicated. What does it entail?
 

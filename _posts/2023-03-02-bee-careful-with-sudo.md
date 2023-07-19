@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 'Bee Careful With Sudo'
+date: 2023-03-02 12:39 -0800
 tags:
 - macos
 - sudo

@@ -1,5 +1,7 @@
 ---
 layout: post
+title: 'Customizing Tags'
+date: 2021-01-13 12:32 -0500
 tags:
   - the blog
   - jekyll

@@ -1,8 +1,7 @@
 ---
 layout: post
 title: 'RssBot Bugfix 1: Reposting on Restart'
-date: 2023-03-16
-last_updated: 2023-07-18
+date: 2023-03-16 23:55 -0400
 tags:
 - python
 - discord

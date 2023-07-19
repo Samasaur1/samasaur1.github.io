@@ -1,8 +1,8 @@
 ---
 layout: post
 title: 'A Third NixOS Machine'
-date: 2023-05-17
-last_updated: 2023-07-18
+date: 2023-05-17 16:09 -0700
+last_updated: 2023-07-18 19:15:00 -0700
 tags:
 - nixos
 - ssh

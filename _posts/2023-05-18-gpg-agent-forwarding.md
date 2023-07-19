@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 'GPG Agent Forwarding'
+date: 2023-05-18 11:48 -0700
 tags:
 - nixos
 - gnupg

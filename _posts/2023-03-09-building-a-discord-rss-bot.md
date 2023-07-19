@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 'Building a Discord RSS Bot'
+date: 2023-03-09 22:40 -0800
 tags:
 - python
 - discord

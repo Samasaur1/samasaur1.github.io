@@ -1,5 +1,7 @@
 ---
 layout: post
+title: 'Welcome to the Blog'
+date: 2021-01-12 18:15 -0500
 tags:
   - the blog
 ---
