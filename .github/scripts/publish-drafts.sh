@@ -22,7 +22,7 @@ do
         git mv "$DRAFT" "_posts/${POST_DATE_DATE}-${BASE_FILENAME}"
     fi
 done
-if [ "$CHANGES" = "$YES" ]
+if [ "$CHANGES" = "YES" ]
 then
     git config user.name "GitHub Actions"
     git config user.email "noreply@github.com"
