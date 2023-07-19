@@ -7,7 +7,6 @@ tags:
 - python
 - discord
 - rss
-- draft
 ---
 Even after [I fixed the bug I was seeing with RssBot]({% post_url 2023-07-18-rssbot-bugfix-2-unpostable-channels %}), I continued to see errors. Diving into the log again, I saw the following error:
 
