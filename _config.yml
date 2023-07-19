@@ -28,3 +28,4 @@ page_gen:
       record.fetch("displayname", record["name"])
 
 timezone: America/Los_Angeles
+url: https://samasaur1.github.io
