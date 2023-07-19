@@ -1,6 +1,8 @@
 ---
 layout: post
 title: 'A Third NixOS Machine'
+date: 2023-05-17
+last_updated: 2023-07-18
 tags:
 - nixos
 - ssh
@@ -96,7 +98,7 @@ Turns out it was actually pretty easy. Here's what I did:
     Next, we choose filesystems for these two partitions and format them. I'm using `btrfs` for my main partition, and the EFI partition has to be FAT32[^1]:
 
     <pre>
-<code><span class="user-select-none"># </span>mkfs.fat -F 32 -n boot /dev/sda3</code>
+<code><span class="user-select-none"># </span>mkfs.fat -F 32 -n boot /dev/sda1</code>
 <code><span class="user-select-none"># </span>mkfs.btrfs -L nixos /dev/sda2</code></pre>
 
     [^1]: According to [the UEFI specification](https://uefi.org/specs/UEFI/2.10/13_Protocols_Media_Access.html#file-system-format), "EFI encompasses the use of FAT32 for a system partition, and FAT12 or FAT16 for removable media."
@@ -152,4 +154,13 @@ Turns out it was actually pretty easy. Here's what I did:
 
 [^2]: Apparently if you put the flake at `/etc/nixos/flake.nix`, it will be read by `nixos-rebuild` (and thus presumably `nixos-install`), but I only learned then when writing this article, and I haven't tested it.
 
+There are two important manual configuration steps: set the timezone (with `sudo timedatectl set-timezone <your time zone>`) and authenticate with Tailscale (with `sudo tailscale up`). At the moment, I also need to clone my dotfiles, because I do not yet have home-manager set up, but that can be done at any point in the future.
+
 I was actually pleasantly surprised at how easy this was! To be fair, it was my third NixOS machine (even before counting various NixOS VMs I've played with before), so I had more experience than when starting out, but now that I _do_ have experience, it would be _super_ easy to set up more machines.
+
+***
+
+Edits:
+- 2023-07-18:
+    - Correctly put the boot partition on `/dev/sda1` rather than `/dev/sda3`
+    - Add note about setting timezone and authenticating with Tailscale
