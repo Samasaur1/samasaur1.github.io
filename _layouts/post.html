@@ -4,7 +4,14 @@ layout: default
 <div id="post-main-content">
   <h1 class="mb-0 pb-0">{{ page.title }}</h1>
   <p class="mt-0 pt-0 text-muted">
-  {{ page.date | date: "%d %b %Y %I:%M %p" }}
+  <span id="post-date-utc-raw" style="display: none;">{{ page.date | date: "%FT%T%z" }}</span>
+  <span id="post-date">{{ page.date | date: "%d %b %Y %l:%M %p" }}</span>
+  <script type="text/javascript">
+    d = new Date(document.getElementById("post-date-utc-raw").innerHTML);
+    _date = new Intl.DateTimeFormat("en-GB", { dateStyle: "medium" }).format;
+    _time = new Intl.DateTimeFormat("en-US", { timeStyle: "short" }).format;
+    document.getElementById("post-date").innerHTML = _date(d) + " " + _time(d);
+  </script>
   {% if page.tags[0] %}
     &nbsp;&nbsp;
     {% for tag in page.tags %}
@@ -21,7 +28,14 @@ layout: default
     {% endfor %}
   {% endif %}
   {% if page.last_updated %}
-    &nbsp;&nbsp;updated {{ page.last_updated | date: "%d %b %Y %I:%M %p" }}
+    <span id="update-date-utc-raw" style="display: none;">{{ page.last_updated | date: "%FT%T%z" }}</span>
+    &nbsp;&nbsp;updated <span id="update-date">{{ page.last_updated | date: "%d %b %Y %l:%M %p" }}</span>
+    <script type="text/javascript">
+      d = new Date(document.getElementById("update-date-utc-raw").innerHTML);
+      _date = new Intl.DateTimeFormat("en-GB", { dateStyle: "medium" }).format;
+      _time = new Intl.DateTimeFormat("en-US", { timeStyle: "short" }).format;
+      document.getElementById("update-date").innerHTML = _date(d) + " " + _time(d);
+    </script>
   {% endif %}
   </p>
   <hr style="border: 1px solid;"/>
