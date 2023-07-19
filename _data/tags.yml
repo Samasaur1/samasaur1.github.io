@@ -2,6 +2,8 @@
   class: badge-swift
 - name: jekyll
   class: badge-danger
+  description: |-
+    the static site generator that powers this site. <a href="https://jekyllrb.com">jekyllrb.com</a>
 - name: java
   class: badge-java
 - name: rust
@@ -18,3 +20,30 @@
   class: badge-python
 - name: nixos
   class: badge-nix
+- name: frc
+- name: the blog
+- name: swift package manager
+- name: macos
+  displayname: macOS
+  description: |-
+    apple's desktop platform. my posts about it generally fall into one of two categories: tracking down bugs or doing complex configuration
+- name: neovim
+- name: sudo
+- name: shell
+- name: discord
+- name: rss
+- name: rssbot
+  description: |-
+    a discord bot that watches RSS/Atom feeds. find it on GitHub <a href="https://github.com/Samasaur1/rssbot">here</a>
+- name: refind
+- name: catppuccin
+- name: svg
+- name: imagemagick
+- name: ssh
+- name: gnupg
+- name: tailscale
+- name: wireguard
+- name: vpn
+- name: homebrew
+- name: macports
+- name: alacritty

@@ -5,6 +5,7 @@ collections:
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-datapage-generator
 
 defaults:
   - 
@@ -16,3 +17,12 @@ defaults:
       # layout: default
 
 #excerpt_separator: <!--more-->
+
+page_gen_dirs: false
+page_gen:
+  - data: tags
+    template: tag
+    dir: tags
+    name: name
+    title_expr: |-
+      record.fetch("displayname", record["name"])

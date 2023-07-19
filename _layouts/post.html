@@ -2,22 +2,28 @@
 layout: default
 ---
 <div id="post-main-content">
-<h1 class="mb-0 pb-0">{{ page.title }}</h1>
-<p class="mt-0 pt-0 text-muted">
-{{ page.date | date_to_string }}
+  <h1 class="mb-0 pb-0">{{ page.title }}</h1>
+  <p class="mt-0 pt-0 text-muted">
+  {{ page.date | date_to_string }}
   {% if page.tags[0] %}
     &nbsp;&nbsp;
     {% for tag in page.tags %}
       {% assign css-class = "badge-info" %}
       {% for site_tag in site.data.tags %}
         {% if site_tag.name == tag %}
-          {% assign css-class = site_tag.class %}
+          {% if site_tag.class %}
+            {% assign css-class = site_tag.class %}
+          {% endif %}
         {% endif %}
       {% endfor %}
-      <a href="{{ "/tags/" | append: tag | relative_url }}" class="badge {{ css-class }}">{{ tag }}</a>
+      {% capture link %}/tags/{{ tag | replace: " ", "-" }}{% endcapture %}
+      <a href="{{ link | relative_url }}" class="badge {{ css-class }}">{{ tag }}</a>
     {% endfor %}
   {% endif %}
-</p>
-<hr style="border: 1px solid;"/>
-{{ content }}
+  {% if page.last_updated %}
+    &nbsp;&nbsp;updated {{ page.last_updated | date_to_string }}
+  {% endif %}
+  </p>
+  <hr style="border: 1px solid;"/>
+  {{ content }}
 </div>

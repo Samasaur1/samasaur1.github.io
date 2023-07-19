@@ -115,13 +115,21 @@ pre {
   background-color: lightgray;
 }
 
-#post-main-content {
-  padding: 1.5em;
-}
-
 blockquote {
   margin-left: 1em;
   border-left: 6px solid lightgray;
   padding-left: 1em;
   padding-top: 0.25em;
+}
+
+#post-main-content {
+  padding: 1.5em;
+}
+
+#tag-info {
+  padding: 1.5em;
+}
+
+#tag-posts {
+  padding: 1.5em;
 }
