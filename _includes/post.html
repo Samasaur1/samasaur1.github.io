@@ -3,8 +3,8 @@
   <span style="font-size: 50%;">
     <span class="text-muted">{{ post.date | date_to_string }}&nbsp;</span>
   </span>
-  <span style="font-size: 55%;">
-    {% if post.tags[0] %}
+  {% if post.tags[0] %}
+    <span style="font-size: 55%;">
       {% for tag in post.tags %}
         {% assign css-class = "badge-secondary" %}
         {% for site_tag in site.data.tags %}
@@ -16,8 +16,8 @@
         {% endfor %}
         {% include tag.html name=tag %}
       {% endfor %}
-    {% endif %}
-  </span>
+    </span>
+  {% endif %}
   {% if post.last_updated %}
     <span style="font-size: 50%;">
       <span class="text-muted">&nbsp;updated {{ post.last_updated | date_to_string }}</span>
