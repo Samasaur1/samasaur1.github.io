@@ -30,8 +30,8 @@ title: Samasaur1 | Blog
         {% endif %}
       {% endfor %}
       <li>
-        {% capture link %}/tags/{{ tag[0] | replace: " ", "-" }}{% endcapture %}
-        <a href="{{ link | relative_url }}" class="badge {{ css-class }}">{{ tag[0] }}</a>
+        {% assign t = tag[0] %}
+        {% include tag.html name=t %}
         ({{ tag[1] | size }})
       </li>
     {% endfor %}

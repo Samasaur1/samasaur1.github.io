@@ -14,8 +14,7 @@
             {% endif %}
           {% endif %}
         {% endfor %}
-        {% capture link %}/tags/{{ tag | replace: " ", "-" }}{% endcapture %}
-        <a href="{{ link | relative_url }}" class="badge {{ css-class }}">{{ tag }}</a>
+        {% include tag.html name=tag %}
       {% endfor %}
     {% endif %}
   </span>
