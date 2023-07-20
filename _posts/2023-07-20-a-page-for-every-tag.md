@@ -2,6 +2,7 @@
 layout: post
 title: 'A Page for Every Tag'
 date: 2023-07-20 14:25 -0700
+last_updated: 2023-07-20 15:42 -0700
 tags:
 - the blog
 - jekyll
@@ -111,6 +112,13 @@ The first issue I faced was generating the pages for the tags. "Sam," you may sa
     > To prevent genericizing and potential loss of its trademark, Google has discouraged use of the word as a verb, particularly when used as a synonym for general web searching.
 
     so I choose to use it deliberately
+
+<blockquote style="border-left-color: red; background-color: #ffaaaa; padding-top: 0.5em; padding-bottom: 0.5em;">
+    <h5><strong><img style="width: 2em;" src="/assets/images/error.svg"/>&nbsp;&nbsp;This plugin does not work using the classic GitHub Pages deployment strategy.</strong></h5>
+    <p>Initially, GitHub Pages sites were built when changes were pushed to a specific branch. There are a number of limitations on this deployment model, most notably that GitHub limits the plugins that can be used. The plugin I am using in this post is not one of the supported plugins, so using it with the classic deployment strategy will not work properly.</p>
+    <p>As of last year, GitHub also supports deploying GitHub Pages sites using GitHub Actions. However, sites that were already configured to use branch-based deployment, such as mine, were not automatically migrated. If this applies to you as well, and you would like to use plugins that are not supported by the classic deployment strategy, you will need to migrate to the GitHub Actions deployment strategy.</p>
+    <p>See <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site">the GitHub documentation on publishing sources</a> for more information.</p>
+</blockquote>
 
 ```diff
 diff --git a/_config.yml b/_config.yml
