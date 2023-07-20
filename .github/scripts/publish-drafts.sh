@@ -26,6 +26,6 @@ if [ "$CHANGES" = "YES" ]
 then
     git config user.name "GitHub Actions"
     git config user.email "noreply@github.com"
-    git commit -m "Publish scheduled posts"
+    git commit -m "[CI] Publish scheduled posts"
     git push
 fi
