@@ -3,14 +3,15 @@ layout: default
 ---
 <div id="post-main-content">
   <h1 class="mb-0 pb-0">{{ page.title }}</h1>
-  <p class="mt-0 pt-0 text-muted">
+  <p class="mt-0 pt-0 text-muted pb-0 mb-0">
   <span data-utc="{{ page.date | date: "%FT%T%z" }}" id="post-date">{{ page.date | date: "%d %b %Y %l:%M %p" }}</span>
   <script type="text/javascript">
     el = document.getElementById("post-date");
     d = new Date(el.attributes["data-utc"].value);
     _date = new Intl.DateTimeFormat("en-GB", { dateStyle: "medium" }).format;
     _time = new Intl.DateTimeFormat("en-US", { timeStyle: "short" }).format;
-    el.innerHTML = _date(d) + " " + _time(d);
+    el.attributes["date-local"] = _date(d) + " " + _time(d);
+    el.attributes["date-sitetimezone"] = el.innerHTML;
     el.removeAttribute("data-utc");
   </script>
   {% if page.tags[0] %}
@@ -34,12 +35,62 @@ layout: default
       d = new Date(el.attributes["data-utc"].value);
       _date = new Intl.DateTimeFormat("en-GB", { dateStyle: "medium" }).format;
       _time = new Intl.DateTimeFormat("en-US", { timeStyle: "short" }).format;
-      el.innerHTML = _date(d) + " " + _time(d);
+      el.attributes["date-local"] = _date(d) + " " + _time(d);
+      el.attributes["date-sitetimezone"] = el.innerHTML;
       el.removeAttribute("data-utc");
     </script>
   {% endif %}
+    <script>
+      function updateCookie() {
+        convert = document.getElementById("localtime").checked;
+        document.cookie = "convertToLocalTime=" + convert + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
+        el = document.getElementById("post-date");
+        el.innerHTML = convert ? el.attributes["date-local"] : el.attributes["date-sitetimezone"];
+        {% if page.last_updated %}
+          el = document.getElementById("update-date");
+          el.innerHTML = convert ? el.attributes["date-local"] : el.attributes["date-sitetimezone"];
+        {% endif %}
+      }
+    </script>
+    <br/>
+    <span class="pb-0 pt-0 mb-0 mt-0" style="font-size: 60%;">
+      <input type="checkbox" name="localtime" id="localtime" checked onchange="updateCookie()" style="transform: scale(0.6) translateY(3px);"/>convert to local time zone
+    </span>
+    <script>
+      // source: https://www.w3schools.com/js/js_cookies.asp
+      function getCookie(cname) {
+        let name = cname + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(';');
+        for(let i = 0; i <ca.length; i++) {
+          let c = ca[i];
+          while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return "";
+      }
+      convert = getCookie("convertToLocalTime");
+      if (convert === "") convert = false;
+      convert = convert === "true";
+      document.getElementById("localtime").checked = convert;
+    </script>
+    <script>
+      convert = document.getElementById("localtime").checked;
+      if (convert) {
+        el = document.getElementById("post-date");
+        el.innerHTML = el.attributes["date-local"];
+        {% if page.last_updated %}
+          el = document.getElementById("update-date");
+          el.innerHTML = el.attributes["date-local"];
+        {% endif %}
+      }
+    </script>
   </p>
-  <hr style="border: 1px solid;"/>
+  <hr class="mt-0 pt-0" style="border: 1px solid;"/>
   {{ content }}
   <hr style="border: 1px solid;"/>
   <div id="post-comments">
