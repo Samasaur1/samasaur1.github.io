@@ -11,6 +11,7 @@ layout: default
     _date = new Intl.DateTimeFormat("en-GB", { dateStyle: "medium" }).format;
     _time = new Intl.DateTimeFormat("en-US", { timeStyle: "short" }).format;
     el.innerHTML = _date(d) + " " + _time(d);
+    el.removeAttribute("data-utc");
   </script>
   {% if page.tags[0] %}
     &nbsp;&nbsp;
@@ -34,6 +35,7 @@ layout: default
       _date = new Intl.DateTimeFormat("en-GB", { dateStyle: "medium" }).format;
       _time = new Intl.DateTimeFormat("en-US", { timeStyle: "short" }).format;
       el.innerHTML = _date(d) + " " + _time(d);
+      el.removeAttribute("data-utc");
     </script>
   {% endif %}
   </p>
