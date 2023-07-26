@@ -10,7 +10,7 @@
   <div class="comment-body">{{ comment.message | escape | markdownify }}</div>
   <cite>
     {% if comment.url %}
-      <a href="{{ comment.url }}" rel="nofollow">{{ comment.name | xml_escape }}</a>
+      <a href="{{ comment.url }}" rel="nofollow">{{ comment.name | xml_escape }}</a>&nbsp;{% if comment.url == site.url %}<span class="badge badge-info" style="font-style: normal;">Author</span>{% endif %}
     {% else %}
       {{ comment.name | xml_escape }}
     {% endif %}
