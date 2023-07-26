@@ -7,7 +7,7 @@
 {% endif %}
 
 <blockquote id="{{ comment.id }}">
-  <div class="comment-body">{{ comment.message | markdownify }}</div>
+  <div class="comment-body">{{ comment.message | escape | markdownify }}</div>
   <cite>
     {% if comment.url %}
       <a href="{{ comment.url }}" rel="nofollow">{{ comment.name | xml_escape }}</a>
