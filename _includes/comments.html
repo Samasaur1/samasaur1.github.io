@@ -13,7 +13,7 @@
   <ol>
   {% assign sorted_comments = comments | sort: 'date' %}
   {% for comment in sorted_comments %}
-    <li{% if comment.email == author.email %} class="byauthor" {% endif %}>
+    <li{% if comment.url %}{% if comment.url == site.url %} class="byauthor" {% endif %}{% endif %}>
       {% include comment.html %}
     </li>
   {% endfor %}
