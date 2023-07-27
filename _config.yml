@@ -36,6 +36,4 @@ description: samasaur1.github.io
 emptyArray: []
 
 comments:
-  # receiver: http://localhost:3000/
-  receiver: http://blinky:3000/
-  # receiver: https://{{your-receiver-site}}/api/PostComment}}
+  receiver: https://comments.blog.samasaur.com
