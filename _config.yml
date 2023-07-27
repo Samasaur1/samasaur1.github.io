@@ -15,6 +15,7 @@ defaults:
     values:
       author: sam
       # layout: default
+      commenting: open
 
 #excerpt_separator: <!--more-->
 
@@ -31,3 +32,8 @@ timezone: America/Los_Angeles
 url: https://samasaur1.github.io
 title: samasaur1.github.io
 description: samasaur1.github.io
+
+emptyArray: []
+
+comments:
+  receiver: https://comments.blog.samasaur.com
