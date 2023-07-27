@@ -134,3 +134,46 @@ blockquote {
 #tag-posts {
   padding: 1.5em;
 }
+
+blockquote.callout {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+blockquote.callout > h5 {
+    margin-left: 2.25em;
+    margin-bottom: 0.5em;
+    line-height: 2em;
+}
+blockquote.callout > h5:before {
+    content: "";
+    background-size: cover;
+    width: 2em;
+    height: 2em;
+    display: block;
+    position: absolute;
+    left: 4rem;
+}
+blockquote.callout.callout-error {
+    border-left-color: red;
+    background-color: #ffaaaa;
+}
+blockquote.callout.callout-error > h5:before {
+    // https://www.svgrepo.com/svg/379925/alert-error
+    background-image: url('/assets/images/error.svg');
+}
+blockquote.callout.callout-note {
+    border-left-color: #fcba03;
+    background-color: #ffddaa;
+}
+blockquote.callout.callout-note > h5:before {
+    // https://www.svgrepo.com/svg/509175/note
+    background-image: url('/assets/images/note.svg');
+}
+blockquote.callout.callout-info {
+    border-left-color: #17a2b8;
+    background-color: #aaffff;
+}
+blockquote.callout.callout-info > h5:before {
+    // https://www.svgrepo.com/svg/458755/info-alt
+    background-image: url('/assets/images/info.svg');
+}
