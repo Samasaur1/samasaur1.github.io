@@ -13,11 +13,21 @@ title: Samasaur1 | Blog
 
 <ul>
   {% for post in site.posts %}
-    <li>
+    <li{% if post.path contains '_drafts/' %} class="draft"{% endif %}>
       {% include post.html %}
     </li>
   {% endfor %}
 </ul>
+  {% assign x = site.posts | map: "path" | join: "" %}
+  {% if x contains '_drafts/' %}
+<style>
+ul > li.draft > h3 > a::after {
+    content: ' (draft)';
+    font-size: 50%;
+    color: red;
+}
+</style>
+  {% endif %}
 <h2>Tags</h2>
   <ul>
     {% for tag in site.tags %}
