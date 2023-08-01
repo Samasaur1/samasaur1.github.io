@@ -120,7 +120,7 @@ The first issue I faced was generating the pages for the tags. "Sam," you may sa
 > 
 > As of last year, GitHub also supports deploying GitHub Pages sites using GitHub Actions. However, sites that were already configured to use branch-based deployment, such as mine, were not automatically migrated. If this applies to you as well, and you would like to use plugins that are not supported by the classic deployment strategy, you will need to migrate to the GitHub Actions deployment strategy.
 > 
-> See <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site">the GitHub documentation on publishing sources</a> for more information.
+> See [the GitHub documentation on publishing sources](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site) for more information.
 
 ```diff
 diff --git a/_config.yml b/_config.yml
