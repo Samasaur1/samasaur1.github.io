@@ -79,7 +79,7 @@ Note: at the time of writing, both versions of that error warning should appear 
 
 This uses a non-standard feature of Markdown called ["inline attribute lists"](https://kramdown.gettalong.org/syntax.html#block-ials), which Kramdown (the default Jekyll markdown parser) supports. The `{:.callout.callout-error}` line at the beginning of the Markdown block quote adds the CSS classes `callout` and `callout-error` to that block quote. I styled `callout` and `callout-error` in `_sass/main.scss`:
 
-```sass
+```scss
 blockquote.callout {
     padding-top: 0.5em;
     padding-bottom: 0.5em;
@@ -92,7 +92,7 @@ blockquote.callout.callout-error {
 
 This looks great, but does not apply the icon. I wanted to be able to have the icon appear without having to put in it every time I wanted to use a callout. This is really what Jekyll markdown plugins are for, but as I said, I didn't want to write one. Instead I tried to add a child element to blockquote elements with these two CSS classes. However, this did not work, so instead, I added a `:before` CSS pseudoelement to the `h5` element in the blockquote:
 
-```sass
+```scss
 blockquote.callout > h5 {
     margin-left: 2.25em;
     margin-bottom: 0.5em;
@@ -118,7 +118,7 @@ To prevent multiple uses of icons, we could just add the `:first-of-type` pseudo
 
 So our final CSS looks like this:
 
-```sass
+```scss
 blockquote.callout {
     padding-top: 0.5em;
     padding-bottom: 0.5em;
