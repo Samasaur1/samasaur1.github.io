@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 'Info! Adding Callouts to the Blog'
-# date: 2023-07-31 11:20 -0700
+title: 'Callouts have been added to the blog'
+date: 2023-08-01 13:42 -0700
 tags:
 - the blog
 - css
@@ -112,7 +112,7 @@ blockquote.callout.callout-error > h5:before {
     background-image: url('/assets/images/error.svg');
 }
 ```
-This works pretty well. It'd be more of a concern if other people were using this technique to make callouts without understanding the underlying CSS, since if you forget to add an `h5` element, there will be no icon. In fact, as I've described it above, you can actually add multiple copies of the icon by adding multiple `h5` elements in the blockquote, since the CSS above applies to all `h5` elements that are direct children to blockquotes with the callout classes.
+This works pretty well. It'd be more of a concern if other people were using this technique to make callouts without understanding the underlying CSS, since if you forget to add an `h5` element, there will be no icon. In fact, as I've described it above, you can actually add multiple copies of the icon by adding multiple `h5` elements in the blockquote, since the CSS above applies to all `h5` elements that are direct children of blockquotes with the callout classes.
 
 To prevent multiple uses of icons, we could just add the `:first-of-type` pseudoselector. However, I also want to prevent including the icon midway through the callout, so we can instead use `:first-child`, which carries the same "first" logic that prevents multiple icons, but also ensures that the icon is only displayed if the `h5` element is the first element in the blockquote.
 
