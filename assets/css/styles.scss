@@ -2,4 +2,67 @@
 ---
 @import "main";
 @import "search";
-@import "github.css"
+@import "github.css";
+
+// Taken from Bootstrap 4.5.3
+$white:    #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black:    #000 !default;
+
+// The yiq lightness value that determines when the lightness of color changes from "dark" to "light". Acceptable values are between 0 and 255.
+$yiq-contrasted-threshold:  150 !default;
+
+// Customize the light and dark text colors for use in our YIQ color contrast function.
+$yiq-text-dark:             $gray-900 !default;
+$yiq-text-light:            $white !default;
+
+@function color-yiq($color, $dark: $yiq-text-dark, $light: $yiq-text-light) {
+  $r: red($color);
+  $g: green($color);
+  $b: blue($color);
+
+  $yiq: calc((($r * 299) + ($g * 587) + ($b * 114)) / 1000);
+
+  @if ($yiq >= $yiq-contrasted-threshold) {
+    @return $dark;
+  } @else {
+    @return $light;
+  }
+}
+// End excerpt from Bootstrap source code
+
+{% for tag in site.data.tags %}
+    {% if tag.color %}
+        .badge-{{tag.name}} {
+            $bg: #{{tag.color}};
+            {% if tag.override_foreground_color %}
+                $fg: #{{tag.override_foreground_color}};
+            {% else %}
+                $fg: color-yiq($bg);
+            {% endif %}
+            background-color: $bg;
+            color: $fg;
+
+            @at-root a#{&} {
+                &:hover, &:focus {
+                    color: $fg;
+                    background-color: darken($bg, 10%);
+                }
+
+                &:focus, &.focus {
+                    outline: 0;
+                    box-shadow: 0 0 0 .2rem rgba($bg, .5);
+                    // box-shadow: 0 0 0 $badge-focus-width rgba($bg, .5);
+                }
+            }
+        }
+    {% endif %}
+{% endfor %}

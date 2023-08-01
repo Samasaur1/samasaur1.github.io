@@ -1,25 +1,27 @@
+#language colors from https://github.com/ozh/github-colors
 - name: swift
-  class: badge-swift
+  color: F05138
+  # override_foreground_color: ffffff
 - name: jekyll
   class: badge-danger
   description: |-
     the static site generator that powers this site. <a href="https://jekyllrb.com">jekyllrb.com</a>
 - name: java
-  class: badge-java
+  color: b07219
 - name: rust
-  class: badge-rust
+  color: dea584
 - name: tex
-  class: badge-tex
+  color: 3d6117
 - name: latex
-  class: badge-tex
+  color: 3d6117
 - name: kotlin
-  class: badge-kotlin
+  color: a97bff
 - name: gradle
-  class: badge-gradle
+  color: 02303a
 - name: python
-  class: badge-python
+  color: 3572A5
 - name: nixos
-  class: badge-nix
+  color: 7e7eff
 - name: frc
 - name: the blog
 - name: swift package manager
