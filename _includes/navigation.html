@@ -43,7 +43,7 @@
       {% endfor %}
     </ul>
     <form class="form-inline my-2 my-lg-0" action="{{ "search.html" | relative_url }}" method="GET" style="box-sizing: border-box;">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="search-field" name="q" onfocus="document.getElementById('searchSlash').style.display = 'none';" onblur="document.getElementById('searchSlash').style.display = '';">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="search-field" name="q" onfocus="document.getElementById('searchSlash').style.display = 'none';" onblur="document.getElementById('searchSlash').style.display = '';" search-slash-ignore>
       <div style="position: relative; width: 0; height: 0;">
         <svg id="searchSlash" xmlns="http://www.w3.org/2000/svg" width="22" height="20" aria-hidden="true" class="mr-1 header-search-key-slash" style="position: absolute; left: -35px; top: -9px;"><path fill="none" stroke="#979A9C" opacity=".4" d="M3.5.5h12c1.7 0 3 1.3 3 3v13c0 1.7-1.3 3-3 3h-12c-1.7 0-3-1.3-3-3v-13c0-1.7 1.3-3 3-3z"></path><path fill="#979A9C" d="M11.8 6L8 15.1h-.9L10.8 6h1z"></path></svg>
       </div>
@@ -53,8 +53,8 @@
       window.addEventListener("keydown", function(e) {
         // console.log(e.keyCode);
         if (e.keyCode === 191) {// use the / key
-          if (document.activeElement === document.getElementById("search-field")) {
-            // console.log("'/' key pressed; search already selected");
+          if (document.activeElement.hasAttribute("search-slash-ignore")) {
+            // console.log("ignore");
           } else {
             e.preventDefault();
             document.getElementById("search-field").focus();

@@ -4,16 +4,16 @@
     <input name="redirect" type="hidden" value="{{ site.url }}{{ page.url }}#post-comments">
     <input name="post_id" type="hidden" value="{{ slug }}">
     <input name="comment-site" type="hidden" value="{{ site.url }}">
-    <textarea style="width: 100%;" name="message" id="message" placeholder="Continue the discussion."></textarea>
+    <textarea style="width: 100%;" name="message" id="message" placeholder="Continue the discussion." search-slash-ignore></textarea>
 
     <label for="name">Name/alias <span>(Required, displayed)</span></label>
-    <input type="text" name="name" id="name" placeholder="Name" />
+    <input type="text" name="name" id="name" placeholder="Name"  search-slash-ignore/>
 
     <label for="email">Email <span>(Required, not shown)</span></label>
-    <input type="text" name="email" id="email" placeholder="myemail@somedomain.com" />
+    <input type="text" name="email" id="email" placeholder="myemail@somedomain.com"  search-slash-ignore/>
 
     <label for="url">Website <span>(Optional, displayed)</span></label>
-    <input type="text" name="url" id="url" placeholder="https://mywebsite.com" />
+    <input type="text" name="url" id="url" placeholder="https://mywebsite.com"  search-slash-ignore/>
 
     <button onclick="setupForm()" type="button" class="btn btn-primary" id="commentbutton">Leave response</button>
   </fieldset>
