@@ -13,3 +13,7 @@ You can read more about me on <a href="{{ "/about" | relative_url }}">the about 
 </p>
 
 </div>
+
+***
+
+{{ site.github.build_revision }}

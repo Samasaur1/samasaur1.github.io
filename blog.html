@@ -2,6 +2,7 @@
 layout: default
 title: Samasaur1 | Blog
 ---
+<div style="flex: 1;">
 <div style="padding: 1.5em;">
 <h1>Latest Posts</h1>
 <!-- <a href="{{ "/feed.xml" | relative_url }}">
@@ -47,8 +48,7 @@ ul > li.draft > h3 > a::after {
     {% endfor %}
   </ul>
 </div>
-<hr style="width: 90%;"/>
-<footer style="padding: 5px; text-align: center;">
-    <a href="{{ "/feed.xml" | relative_url }}" style="color: gray">RSS/Atom feed</a>
-</footer>
-<!-- <footer>rss</footer> -->
+</div>
+<div style="padding: 5px; text-align: center; margin-bottom: 5px; padding-top: 0px;">
+    <a href="{{ "/feed.xml" | relative_url }}">RSS/Atom feed</a>
+</div>

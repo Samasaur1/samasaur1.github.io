@@ -140,3 +140,21 @@ blockquote.callout.callout-info > h5:first-child:before {
     // https://www.svgrepo.com/svg/458755/info-alt
     background-image: url('/assets/images/info.svg');
 }
+
+footer {
+  background-color: lightgray;
+  width: 100%;
+  text-align: center;
+  font-size: 75%;
+  font-color: gray;
+  font-style: italic;
+  padding: 0.5em;
+}
+#default-layout-content {
+    flex: 1;
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
