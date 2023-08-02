@@ -39,6 +39,8 @@ GEM
     jekyll-datapage-generator (1.4.0)
     jekyll-feed (0.17.0)
       jekyll (>= 3.7, < 5.0)
+    jekyll-git-hash (0.1.0)
+      jekyll (>= 3.9.2)
     jekyll-github-metadata (2.16.0)
       jekyll (>= 3.4, < 5.0)
       octokit (>= 4, < 7, != 4.4.0)
@@ -90,6 +92,7 @@ DEPENDENCIES
   jekyll
   jekyll-datapage-generator
   jekyll-feed
+  jekyll-git-hash
   jekyll-github-metadata
   jekyll-seo-tag
   webrick (~> 1.7)
