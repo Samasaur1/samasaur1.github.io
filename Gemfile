@@ -11,3 +11,5 @@ gem "webrick", "~> 1.7"
 gem 'jekyll-feed'
 gem 'jekyll-seo-tag'
 gem 'jekyll-datapage-generator'
+gem "jekyll-github-metadata"
+gem "jekyll-git-hash"

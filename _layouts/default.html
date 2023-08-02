@@ -25,7 +25,9 @@
   </head>
   <body>
     {% include navigation.html %}
+    <div id="default-layout-content">
     {{ content }}
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
@@ -50,5 +52,14 @@
     <script type="application/javascript">
         littlefoot.littlefoot() // Pass any littlefoot settings here.
     </script>
+    <footer>
+      Copyright © {{ site.time | date: '%Y' }} Samasaur1
+      &bull;
+      {% if jekyll.environment == "production" %}
+      Built off of <a href="{{ "https://github.com/Samasaur1/samasaur1.github.io/tree/" | append: site.github.build_revision }}">commit <span class="text-monospace">{{ site.github.build_revision | truncate: 7, "" }}</span></a>
+      {% else %}
+      Local build (last commit <span class="text-monospace">{{ site.data['hash'] }}</span>)
+      {% endif %}
+    </footer>
   </body>
 </html>
