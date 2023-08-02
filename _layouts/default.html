@@ -58,7 +58,7 @@
       {% if jekyll.environment == "production" %}
       Built off of <a href="{{ "https://github.com/Samasaur1/samasaur1.github.io/tree/" | append: site.github.build_revision }}">commit <span class="text-monospace">{{ site.github.build_revision | truncate: 7, "" }}</span></a>
       {% else %}
-      Local build (last commit <span class="text-monospace">{{ site.github.build_revision | truncate: 7, "" }}</span>)
+      Local build (last commit <span class="text-monospace">{{ site.data['hash'] | truncate: 7, "" }}</span>)
       {% endif %}
     </footer>
   </body>
