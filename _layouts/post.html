@@ -10,7 +10,8 @@ layout: default
     d = new Date(el.attributes["data-utc"].value);
     _date = new Intl.DateTimeFormat("en-GB", { dateStyle: "medium" }).format;
     _time = new Intl.DateTimeFormat("en-US", { timeStyle: "short" }).format;
-    el.innerHTML = _date(d) + " " + _time(d);
+    el.attributes["date-local"] = _date(d) + " " + _time(d);
+    el.attributes["date-sitetimezone"] = el.innerHTML;
     el.removeAttribute("data-utc");
   </script>
   {% if page.tags[0] %}
@@ -34,10 +35,50 @@ layout: default
       d = new Date(el.attributes["data-utc"].value);
       _date = new Intl.DateTimeFormat("en-GB", { dateStyle: "medium" }).format;
       _time = new Intl.DateTimeFormat("en-US", { timeStyle: "short" }).format;
-      el.innerHTML = _date(d) + " " + _time(d);
+      el.attributes["date-local"] = _date(d) + " " + _time(d);
+      el.attributes["date-sitetimezone"] = el.innerHTML;
       el.removeAttribute("data-utc");
     </script>
   {% endif %}
+    <span style="display: none;">
+      <script>
+        function updateCookie() {
+          convert = document.getElementById("localtime").checked;
+          localStorage.setItem("convertToLocalTime", convert);
+          el = document.getElementById("post-date");
+          el.innerHTML = convert ? el.attributes["date-local"] : el.attributes["date-sitetimezone"];
+          {% if page.last_updated %}
+            el = document.getElementById("update-date");
+            el.innerHTML = convert ? el.attributes["date-local"] : el.attributes["date-sitetimezone"];
+          {% endif %}
+        }
+      </script>
+      <br/>
+      <span class="pb-0 pt-0 mb-0 mt-0" style="font-size: 60%;">
+        <input type="checkbox" name="localtime" id="localtime" checked onchange="updateCookie()" style="transform: scale(0.6) translateY(3px);"/>convert to local time zone
+      </span>
+      <script>
+        convert = localStorage.getItem("convertToLocalTime");
+        if (convert === null) {
+          convert = false;
+          localStorage.setItem("convertToLocalTime", false);
+        } else if (convert === "true") {
+          convert = true;
+        } else {
+          convert = false;
+        }
+        document.getElementById("localtime").checked = convert;
+
+        if (convert) {
+          el = document.getElementById("post-date");
+          el.innerHTML = el.attributes["date-local"];
+          {% if page.last_updated %}
+            el = document.getElementById("update-date");
+            el.innerHTML = el.attributes["date-local"];
+          {% endif %}
+        }
+      </script>
+    </span>
   </p>
   <hr style="border: 1px solid;"/>
   {{ content }}
