@@ -15,7 +15,7 @@
       {{ comment.name | xml_escape }}
     {% endif %}
     &ndash;
-    <span class="text-muted" title="{{ comment.date | date_to_rfc822 }}">
+    <span class="text-muted" data-utc="{{ comment.date | date: "%FT%T%z" }}" id="comment-{{ comment.id }}">
       {{ comment.date | date: '%B' }}
       {% assign d = comment.date | date: "%-d" %}
       {% case d %}
@@ -25,11 +25,33 @@
         {% else %}{{d}}th,
       {% endcase %}
       {{ comment.date | date: '%Y' }}
-      {% comment %}
-        <!-- TODO: time -->
-        at
-        {{ comment.date | date: '%Y' }}
-      {% endcomment %}
+      at
+      {% assign no_tz = comment.date | date: '%l:%M %p' | strip %}
+      {% assign tz = comment.date | date: '%l:%M %p %Z' | strip %}
+      {{ comment.date | date: '%l:%M %p %Z' }}{% if tz == no_tz %} UTC{% endif %}
     </span>
+    <script>
+      el = document.getElementById("comment-{{ comment.id }}");
+      d = new Date(el.attributes["data-utc"].value);
+      local_date = new Intl.DateTimeFormat("en-GB", { dateStyle: "medium" }).format;
+      local_time = new Intl.DateTimeFormat("en-US", { timeStyle: "short" }).format;
+      site_date = new Intl.DateTimeFormat("en-GB", { dateStyle: "medium", timeZone: "{{ site.timezone }}"}).format;
+      site_time = new Intl.DateTimeFormat("en-US", { timeStyle: "short", timeZone: "{{ site.timezone }}"}).format;
+      el.attributes["date-local"] = local_date(d) + " at " + local_time(d);
+      el.attributes["date-sitetimezone"] = site_date(d) + " at " + site_time(d);
+      el.removeAttribute("data-utc");
+
+      convert = localStorage.getItem("convertToLocalTime");
+      if (convert === null) {
+        convert = false;
+        localStorage.setItem("convertToLocalTime", false);
+      } else if (convert === "true") {
+        convert = true;
+      } else {
+        convert = false;
+      }
+
+      el.innerHTML = convert ? el.attributes["date-local"] : el.attributes["date-sitetimezone"];
+    </script>
   </cite>
 </blockquote>
