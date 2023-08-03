@@ -59,11 +59,13 @@ layout: default
       </span>
       <script>
         convert = localStorage.getItem("convertToLocalTime");
-        if (!convert) {
+        if (convert === null) {
           convert = false;
           localStorage.setItem("convertToLocalTime", false);
-        } else {
+        } else if (convert === "true") {
           convert = true;
+        } else {
+          convert = false;
         }
         document.getElementById("localtime").checked = convert;
 
