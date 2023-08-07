@@ -37,6 +37,10 @@ I also want to have my Neovim installation shift with light and dark mode, becau
 
 So now we know what we want to do. The next question is how to do it.
 
+macOS allows you to add "observers" for system "notifications". These aren't the notifications that the user would see in Notification Center, but rather for system events (such as undo/redo, waking from sleep, changes to the Contacts database, when a game controller connects, when the user changes their preferred units in Health, when the music player's queue changes, when the clipboard changes, or more[^morenotifications]). Among 
+
+[^morenotifications]: This was an essentially random list of notifications. You can see a larger but not full list [at the Apple docs](https://developer.apple.com/documentation/foundation/nsnotification/name)
+
 ***
 
 but the short version is that macOS lets you "listen" for certain system "notifications" (essentially register a callback on some system events, including when the system interface style changes)
