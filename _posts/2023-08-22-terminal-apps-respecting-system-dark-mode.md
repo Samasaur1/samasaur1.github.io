@@ -1,7 +1,8 @@
 ---
 layout: post
 title: 'Terminal Apps Respecting System Dark Mode'
-date: 2023-08-22 17:22 -0700
+date: 2023-08-22 16:39 -0700
+last_updated: 2023-08-22 17:27 -0700
 tags:
 - macos
 - neovim
