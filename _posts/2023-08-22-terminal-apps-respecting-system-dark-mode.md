@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Terminal Apps Respecting System Dark Mode'
-date: 2023-08-22 16:39 -0700
+date: 2023-08-22 17:22 -0700
 tags:
 - macos
 - neovim
@@ -44,6 +44,8 @@ macOS allows you to add "observers" for system "notifications". These aren't the
 
 [^morenotifications]: This was an essentially random list of notifications. You can see a larger but not full list [at the Apple docs](https://developer.apple.com/documentation/foundation/nsnotification/name)
 
+#### registering callbacks
+
 <!-- If you google how to do this, most of the results you'll find will point you to the old, undocumented way of listening for this event (and you may see some Objective-C example code). However, since 2018, when Dark Mode was first introduced in macOS Mojave 10.14, there is a newer, better way to do it. I do support both, though: -->
 If you google how to do this, most of the results you'll find will point you to the (pre-dark mode!) old, undocumented way of listening for this event (and you may see some Objective-C example code). However, when Dark Mode was introduced, a newer, better way was added (and documented). We use the new one when we can, but support the legacy method:
 
@@ -63,7 +65,9 @@ if #available(macOS 10.14, *) {
     }
 }
 ```
-When using the newer method, note how I store the observation in `observation` (defined outside of this snippet). You must keep a reference to the observation if you want it to actually observe.
+When using the newer method, note how I store the observation in `observation` (declared outside of this snippet). You must keep a reference to the observation if you want it to actually observe.
+
+#### parsing commands
 
 Also note the `callback()` function, which is defined like so:
 ```swift
@@ -109,6 +113,8 @@ It reads a JSON file in `~/.config/dmn/commands.json` (or respects your `$XDG_CO
     },
 ]
 ```
+
+#### running commands
 
 Next, let's look at the `shell` function:
 
@@ -212,6 +218,8 @@ Remember my personal `commands.json`? Let's take a look in more detail:
 The `nvim-ctrl` and `lvim-ctrl` scripts both fall into this category. They connect to every running Neovim/LunarVim instance using the RPC API, and run one command, which is specified in `commands.json` as `set background={}`, where `{}` is replaced with either `dark` or `light`. The source code for those scripts is available [on my GitHub](https://github.com/Samasaur1/nvim-ctrl)[^lvim].
 
 [^lvim]: The `lvim-ctrl` script is a slightly modified version of this GitHub link, changed so that it finds LunarVim instances instead of Neovim instances.
+
+#### and the rest
 
 The other three scripts all look more or less like this:
 ```bash
