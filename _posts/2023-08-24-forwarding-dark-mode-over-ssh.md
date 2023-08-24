@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 'Forwarding Dark Mode over SSH'
+date: date 14:48 -0700
 tags:
 - nixos
 - ssh
