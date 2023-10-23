@@ -68,7 +68,7 @@
 - name: SwiftySCADKit
   repo_url: https://github.com/Samasaur1/SwiftySCADKit
   link: /projects/swiftyscadkit.html
-  description: OpenSCAD in Swift, allowing autocompletion, syntax highlighting, and code reuse.
+  description: Generate OpenSCAD from swift, allowing interactive configuration, code reuse, and more.
   languages: Swift
   type: library
 - name: RssBot
