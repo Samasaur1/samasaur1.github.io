@@ -15,6 +15,8 @@ layout: default
         <p>{{ proj.description }}</p>
         {% if proj.appstore_url %}
           <span id="project-type-click-target" class="border border-dark p-1 rounded-lg"><span class="icon-{{proj.type}}"></span> {{ proj.type | capitalize }}</span>
+        {% elsif proj.live_url %}
+          <span class="icon-{{proj.type}}"></span> {{ proj.type | capitalize }} <a href="{{proj.live_url}}"><span class="icon-launch"></span></a>
         {% else %}
           <span class="icon-{{proj.type}}"></span> {{ proj.type | capitalize }}
         {% endif %}

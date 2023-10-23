@@ -77,3 +77,35 @@
   description: A Discord bot that watches RSS/Atom feeds, and posts them to user-configurable channels.
   languages: Python
   type: executable
+- name: samasaur1.github.io
+  repo_url: https://github.com/Samasaur1/samasaur1.github.io
+  link: /projects/samasaur1.github.io.html
+  description: This website, which contains my blog and pages for my projects.
+  languages:
+    - Jekyll
+  type: website
+  live_url: https://samasaur1.github.io
+- name: dmn
+  repo_url: https://github.com/Samasaur1/dmn
+  link: /projects/dmn.html
+  description: dark-mode-notifier. Run arbitrary scripts upon switching modes to shift incompatible apps' color schemes.
+  languages: Swift
+  type: executable
+- name: jekyll-comments
+  repo_url: https://github.com/Samasaur1/jekyll-comments
+  link: /projects/jekyll-comments.html
+  description: Add comments to a static Jekyll site. Powers comments on my blog.
+  languages: Rust
+  type: executable
+- name: RemoteText Server
+  repo_url: https://github.com/Remote-Text/remote-text-server
+  link: /projects/remote-text/server.html
+  description: An open-source file editing server with TeX and Markdown compilation, backed by powerful Git history.
+  languages: Rust
+  type: executable
+- name: RemoteText iOS Client
+  repo_url: https://github.com/Remote-Text/remote-text-ios-client
+  link: /projects/remote-text/ios-app.html
+  description: The iOS/iPadOS client for RemoteText. Edit on the go.
+  languages: Swift
+  type: app

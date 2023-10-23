@@ -50,6 +50,18 @@
   background-image: url("/assets/images/star.svg");
 }
 
+// https://www.svgrepo.com/svg/478273/internet-3
+.icon-website {
+  @extend %icon;
+  background-image: url("/assets/images/website.svg");
+}
+.icon-launch {
+  @extend %icon;
+  background-image: url("/assets/images/launch-2.svg");
+  height: 1.1em;
+  width: 1.1em;
+}
+
 .project-sidebar {
   width: 23em;
   background-color: lightgray;
