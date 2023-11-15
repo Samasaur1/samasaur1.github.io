@@ -52,3 +52,11 @@
 - name: alacritty
 - name: css
 - name: scss
+- name: nix
+  color: 7e7eff
+  description: |-
+    the Nix package manager
+- name: nix-darwin
+  color: 7e7eff
+  description: |-
+    declarative configuration of macOS using Nix
