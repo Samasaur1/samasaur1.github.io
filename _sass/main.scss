@@ -173,3 +173,10 @@ body {
 del {
   text-decoration-thickness: 10%;
 }
+
+.hidden {
+  display: none;
+}
+.hidden:target {
+  display: inherit;
+}
