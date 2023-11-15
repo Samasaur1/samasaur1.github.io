@@ -22,6 +22,27 @@
     </div>
   </ol>
 </div>
+<script>
+qp = new URLSearchParams(window.location.search);
+name = qp.get("name") ?? "You";
+body = qp.get("body") ?? "Your comment is now pending!";
+gravatar = qp.get("gravatar") ?? "gravatar";
+// I'm choosing not to support URLs
+document.getElementById("comment-pending").innerHTML = `
+  <li>
+    <img alt="Gravatar for ${name}" src="https://secure.gravatar.com/avatar/${gravatar}?s=64&d=retro&r=pg" srcset="https://secure.gravatar.com/avatar/${gravatar}?s=128&d=retro&r=pg 2x" class="avatar avatar-64 photo" height="64" width="64">
+    <blockquote id="comment id">
+      <!--- TODO: Convert comment to markdown --->
+      <div class="comment-body">${body}</div>
+      <cite>
+        ${name}
+        &ndash;
+        <span class="text-muted">Just now (pending)</span>
+      </cite>
+    </blockquote>
+  </li>
+`;
+</script>
 {% endif %}
 {% if page.commenting == 'open' %}
 {% include comment-new.html %}
