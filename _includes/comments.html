@@ -6,6 +6,7 @@
   {% assign comments = comments | push: comment[1] %}
 {% endfor %}
 {% assign comment_count = comments | size %}
+<script src="/assets/js/md5.js"></script>
 {% if comment_count > 0 %}
   {% assign author = site.data.authors[page.author] %}
 <div id="comments">
@@ -22,7 +23,6 @@
     </div>
   </ol>
 </div>
-<script src="/assets/js/md5.js"></script>
 <script>
 qp = new URLSearchParams(window.location.search);
 name = qp.get("name") ?? "You";
