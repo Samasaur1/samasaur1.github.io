@@ -1,7 +1,7 @@
 <h3>Respond to this</h3>
 <form action="/fake" method="post" id="commentform" class="form-horizontal">
   <fieldset id="commentfields">
-    <input name="redirect" type="hidden" value="{{ site.url }}{{ page.url }}#comment-pending">
+    <input name="redirect" type="hidden" value="{{ site.url }}{{ page.url }}#comment-pending" id="redirect-link">
     <input name="post_id" type="hidden" value="{{ slug }}">
     <input name="comment-site" type="hidden" value="{{ site.url }}">
     <textarea style="width: 100%;" name="message" id="message" placeholder="Continue the discussion." search-slash-ignore></textarea>
@@ -35,6 +35,8 @@
         button.innerText = 'Confirm comment'
         return
       }
+
+      document.getElementById("redirect-link").value = `{{ site.url }}{{ page.url }}?name=${document.getElementById("name").value}&body=${document.getElementById("message").value}&gravatar=${md5(document.getElementById("email").value)}#comment-pending`;
 
       var form = document.getElementById('commentform')
       form.action = '{{ site.comments.receiver }}'

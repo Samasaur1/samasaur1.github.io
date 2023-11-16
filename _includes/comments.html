@@ -22,6 +22,7 @@
     </div>
   </ol>
 </div>
+<script src="/assets/js/md5.js"></script>
 <script>
 qp = new URLSearchParams(window.location.search);
 name = qp.get("name") ?? "You";
@@ -35,7 +36,7 @@ document.getElementById("comment-pending").innerHTML = `
       <!--- TODO: Convert comment to markdown --->
       <div class="comment-body">${body}</div>
       <cite>
-        ${name}
+        ${name} <span class="badge badge-info" style="font-style: normal;">You</span>
         &ndash;
         <span class="text-muted">Just now (pending)</span>
       </cite>
