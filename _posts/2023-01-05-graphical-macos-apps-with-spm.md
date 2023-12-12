@@ -2,6 +2,7 @@
 layout: post
 title: Graphical macOS Apps with the Swift Package Manager
 date: 2023-01-05 14:07 -0500
+last_updated: 2023-12-12 14:15 -0800
 tags:
 - swift
 - swift package manager
@@ -81,7 +82,7 @@ cp Info.plist Slideshow.app/Contents
 codesign --remove-signature Slideshow.app
 codesign --force --deep --sign - Slideshow.app
 ```
-Note that in the last line, specifying `--sign -` signs the application ad-how, which means that while it will run on the computer you signed it on, it won't be trusted anywhere else. If you have an Apple Developer account, you can replace the dash with your signing certificate (I found mine by opening Key chain Access, going to the login key chain, My Certificates, double-clicking on one, scrolling down to the bottom and using the SHE-1 hash (you'll need to remove the spaces). But unless you, like me, have somehow ended up with multiple certificates, you should be able to use any part of the Common Name). This will allow you to distribute apps to other people.
+Note that in the last line, specifying `--sign -` signs the application ad-hoc, which means that while it will run on the computer you signed it on, it won't be trusted anywhere else. If you have an Apple Developer account, you can replace the dash with your signing certificate (I found mine by opening Keychain Access, going to the login key chain, My Certificates, double-clicking on one, scrolling down to the bottom and using the SHA-1 hash (you'll need to remove the spaces). But unless you, like me, have somehow ended up with multiple certificates, you should be able to use any part of the Common Name). This will allow you to distribute apps to other people.
 
 You can now double-click Slideshow.app and it will run! In the specific case of my slideshow app, it crashes immediately, because it expects that if it does not have a controlling try, then a list of files was passed to it via standard input. While double-clicking an application does not give it a standard input, we can do so using the `open(1)` command:
 ```
