@@ -13,7 +13,7 @@
       }; in
         {
         default = nixpkgs.legacyPackages.${system}.mkShell {
-          packages = [ gems gems.wrappedRuby ];
+          packages = [ gems gems.wrappedRuby nixpkgs.legacyPackages.${system}.git ];
           # shellHook = ''
           #   export DEBUG=1
           # '';
