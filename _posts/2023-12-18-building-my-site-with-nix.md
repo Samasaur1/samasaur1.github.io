@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Building My Site With Nix'
-# date: 2023-11-15 11:28 -0800
+date: 2023-12-18 14:44 -0800
 tags:
 - jekyll
 - nix
@@ -182,4 +182,68 @@ jobs:
         uses: actions/deploy-pages@v2
 ```
 
-and that should be it. I'm going to push this workflow to GitHub, and we'll see if it works.
+and that should be it. I pushed this workflow to GitHub, and watched the action run.
+
+#### the final issue
+
+Although the dev shell worked on my local machine, it did *not* work on GitHub Actions, nor did it work in a fresh clone with the *exact* command I was using on GitHub Actions:
+<pre>
+<span class="user-select-none"><strong><span class="text-danger">[sam]</span><span class="text-primary">(~)</span></strong>$ </span><kbd class="user-select-all">nix develop --ignore-environment --keep JEKYLL_ENV -c jekyll build --baseurl ""</kbd>
+Configuration file: /private/tmp/samasaur1.github.io/_config.yml
+To use retry middleware with Faraday v2.0+, install `faraday-retry` gem
+            Source: /private/tmp/samasaur1.github.io
+       Destination: /private/tmp/samasaur1.github.io/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating...
+                    ------------------------------------------------
+      Jekyll 4.3.2   Please append `--trace` to the `build` command
+                     for any additional information or backtrace.
+                    ------------------------------------------------
+/nix/store/7nmjczmxhiynn62khdjl88d8sgsmvm6c-ruby3.1.4-jekyll-git-hash-0.1.0/lib/ruby/gems/3.1.0/gems/jekyll-git-hash-0.1.0/lib/jekyll-git-hash.rb:43:in ``': No such file or directory - git (Errno::ENOENT)
+	from /nix/store/7nmjczmxhiynn62khdjl88d8sgsmvm6c-ruby3.1.4-jekyll-git-hash-0.1.0/lib/ruby/gems/3.1.0/gems/jekyll-git-hash-0.1.0/lib/jekyll-git-hash.rb:43:in `generate'
+	from /nix/store/68z26a9562fksk28d5cjjkii50h67b8v-ruby3.1.4-jekyll-4.3.2/lib/ruby/gems/3.1.0/gems/jekyll-4.3.2/lib/jekyll/site.rb:193:in `block in generate'
+	from /nix/store/68z26a9562fksk28d5cjjkii50h67b8v-ruby3.1.4-jekyll-4.3.2/lib/ruby/gems/3.1.0/gems/jekyll-4.3.2/lib/jekyll/site.rb:191:in `each'
+	from /nix/store/68z26a9562fksk28d5cjjkii50h67b8v-ruby3.1.4-jekyll-4.3.2/lib/ruby/gems/3.1.0/gems/jekyll-4.3.2/lib/jekyll/site.rb:191:in `generate'
+	from /nix/store/68z26a9562fksk28d5cjjkii50h67b8v-ruby3.1.4-jekyll-4.3.2/lib/ruby/gems/3.1.0/gems/jekyll-4.3.2/lib/jekyll/site.rb:79:in `process'
+	from /nix/store/68z26a9562fksk28d5cjjkii50h67b8v-ruby3.1.4-jekyll-4.3.2/lib/ruby/gems/3.1.0/gems/jekyll-4.3.2/lib/jekyll/command.rb:28:in `process_site'
+	from /nix/store/68z26a9562fksk28d5cjjkii50h67b8v-ruby3.1.4-jekyll-4.3.2/lib/ruby/gems/3.1.0/gems/jekyll-4.3.2/lib/jekyll/commands/build.rb:65:in `build'
+	from /nix/store/68z26a9562fksk28d5cjjkii50h67b8v-ruby3.1.4-jekyll-4.3.2/lib/ruby/gems/3.1.0/gems/jekyll-4.3.2/lib/jekyll/commands/build.rb:36:in `process'
+	from /nix/store/68z26a9562fksk28d5cjjkii50h67b8v-ruby3.1.4-jekyll-4.3.2/lib/ruby/gems/3.1.0/gems/jekyll-4.3.2/lib/jekyll/command.rb:91:in `block in process_with_graceful_fail'
+	from /nix/store/68z26a9562fksk28d5cjjkii50h67b8v-ruby3.1.4-jekyll-4.3.2/lib/ruby/gems/3.1.0/gems/jekyll-4.3.2/lib/jekyll/command.rb:91:in `each'
+	from /nix/store/68z26a9562fksk28d5cjjkii50h67b8v-ruby3.1.4-jekyll-4.3.2/lib/ruby/gems/3.1.0/gems/jekyll-4.3.2/lib/jekyll/command.rb:91:in `process_with_graceful_fail'
+	from /nix/store/68z26a9562fksk28d5cjjkii50h67b8v-ruby3.1.4-jekyll-4.3.2/lib/ruby/gems/3.1.0/gems/jekyll-4.3.2/lib/jekyll/commands/build.rb:18:in `block (2 levels) in init_with_program'
+	from /nix/store/yjd83mi8nn976421frdm4ph9wamfmkn5-ruby3.1.4-mercenary-0.4.0/lib/ruby/gems/3.1.0/gems/mercenary-0.4.0/lib/mercenary/command.rb:221:in `block in execute'
+	from /nix/store/yjd83mi8nn976421frdm4ph9wamfmkn5-ruby3.1.4-mercenary-0.4.0/lib/ruby/gems/3.1.0/gems/mercenary-0.4.0/lib/mercenary/command.rb:221:in `each'
+	from /nix/store/yjd83mi8nn976421frdm4ph9wamfmkn5-ruby3.1.4-mercenary-0.4.0/lib/ruby/gems/3.1.0/gems/mercenary-0.4.0/lib/mercenary/command.rb:221:in `execute'
+	from /nix/store/yjd83mi8nn976421frdm4ph9wamfmkn5-ruby3.1.4-mercenary-0.4.0/lib/ruby/gems/3.1.0/gems/mercenary-0.4.0/lib/mercenary/program.rb:44:in `go'
+	from /nix/store/yjd83mi8nn976421frdm4ph9wamfmkn5-ruby3.1.4-mercenary-0.4.0/lib/ruby/gems/3.1.0/gems/mercenary-0.4.0/lib/mercenary.rb:21:in `program'
+	from /nix/store/dl5vgv19bl5lvndbhq8aa8bckv4vshyq-web-gems/lib/ruby/gems/3.1.0/gems/jekyll-4.3.2/exe/jekyll:15:in `<top (required)>'
+	from /nix/store/dl5vgv19bl5lvndbhq8aa8bckv4vshyq-web-gems/bin/jekyll:35:in `load'
+	from /nix/store/dl5vgv19bl5lvndbhq8aa8bckv4vshyq-web-gems/bin/jekyll:35:in `<main>'
+</pre>
+
+I looked at the source code for the plugin that was causing an error, and in retrospect, the issue was clear: that plugin attempts to call `git rev-parse --short HEAD`, but the `git` executable wasn't in the dev shell. For some reason, `nix develop` doesn't clear the `$PATH`, so it worked on my machine by using the global git on my computer, but it didn't work in CI. I added git to the dev shell:
+
+```diff
+commit d1cbbdca744dc6a27ba83914400aeb3e9a69f5cb
+Author: Sam <30577766+Samasaur1@users.noreply.github.com>
+Date:   Mon Dec 18 14:21:15 2023 -0800
+
+    Add git to dev shell (a plugin requires it)
+
+diff --git a/flake.nix b/flake.nix
+index dd388c7..e722862 100644
+--- a/flake.nix
++++ b/flake.nix
+@@ -13,7 +13,7 @@
+       }; in
+         {
+         default = nixpkgs.legacyPackages.${system}.mkShell {
+-          packages = [ gems gems.wrappedRuby ];
++          packages = [ gems gems.wrappedRuby nixpkgs.legacyPackages.${system}.git ];
+           # shellHook = ''
+           #   export DEBUG=1
+           # '';
+```
+
+and that fixed my issue. I now have totally reproducible builds of my site, on any machine.
