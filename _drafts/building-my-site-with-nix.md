@@ -117,4 +117,69 @@ nix develop -c jekyll serve -DH0.0.0.0
 
 The nice thing about Nix is that I don't need to take any special steps to reproduce my environment. Once my dev shell is in Git, I can just run the same `nix develop` command, even on a different machine with a different architecture. That said, there is some work to be done to actually install Nix itself and get this setup going on GitHub Actions.
 
-I haven't actually done it yet, but I would follow https://determinate.systems/posts/nix-github-actions, using <https://github.com/marketplace/actions/install-nix>, and <https://github.com/DeterminateSystems/magic-nix-cache-action/>. The one thing to be concerned about is that I need to use the correct Jekyll environment — I want `JEKYLL_ENV` to be set to `production`, but if unset it defaults to `development`. I'm not sure if I want to do this by creating two different dev shells, one that sets `JEKYLL_ENV` to development and one to production, or whether I want to use the same dev shell and just set the env var explicitly. Probably the second, in which case I'd need the `--ignore-environment --keep JEKYLL_ENV` arguments to `nix develop`.
+Fortunately, that work is pretty easy. To set up Nix, we simply use the Determinate Systems action, and then we also use Determinate Systems' "Magic Nix Cache" action to speed up builds. The one thing to be concerned about is that I need to use the correct Jekyll environment — I want `JEKYLL_ENV` to be set to `production`, but if unset it defaults to `development`. While I could do this by creating separate dev shells for development and production, since the difference is only one environment variable, I instead decided to use the same dev shell and set the env var explicitly, by means of the `--ignore-environment --keep JEKYLL_ENV` arguments to `nix develop`.
+
+This leaves me with the following GitHub Actions workflow file, at `.github/workflows/jekyll.yml`:
+```yaml
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+# Sample workflow for building and deploying a Jekyll site to GitHub Pages
+name: Deploy Jekyll site to Pages
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["main"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Build job
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: DeterminateSystems/nix-installer-action@main
+      - uses: DeterminateSystems/magic-nix-cache-action@main
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v3
+      - name: Build with Jekyll (via Nix)
+        # Outputs to the './_site' directory by default
+        run: nix develop --ignore-environment --keep JEKYLL_ENV -c jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+        env:
+          JEKYLL_ENV: production
+      - name: Upload artifact
+        # Automatically uploads an artifact from the './_site' directory by default
+        uses: actions/upload-pages-artifact@v2
+
+  # Deployment job
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
+```
+
+and that should be it. I'm going to push this workflow to GitHub, and we'll see if it works.
