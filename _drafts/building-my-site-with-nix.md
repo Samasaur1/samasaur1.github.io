@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Building My Site With Nix'
-date: 2023-11-15 11:28 -0800
+# date: 2023-11-15 11:28 -0800
 tags:
 - jekyll
 - nix
