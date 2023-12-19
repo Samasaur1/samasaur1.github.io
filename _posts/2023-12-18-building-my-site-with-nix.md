@@ -2,6 +2,7 @@
 layout: post
 title: 'Building My Site With Nix'
 date: 2023-12-18 14:44 -0800
+last_updated: 2023-12-18 16:13 -0800
 tags:
 - jekyll
 - nix
@@ -188,7 +189,7 @@ and that should be it. I pushed this workflow to GitHub, and watched the action 
 
 Although the dev shell worked on my local machine, it did *not* work on GitHub Actions, nor did it work in a fresh clone with the *exact* command I was using on GitHub Actions:
 <pre>
-<span class="user-select-none"><strong><span class="text-danger">[sam]</span><span class="text-primary">(~)</span></strong>$ </span><kbd class="user-select-all">nix develop --ignore-environment --keep JEKYLL_ENV -c jekyll build --baseurl ""</kbd>
+<span class="user-select-none"><strong><span class="text-danger">[sam]</span><span class="text-primary">(/tmp/samasaur1.github.io)</span></strong>$ </span><kbd class="user-select-all">nix develop --ignore-environment --keep JEKYLL_ENV -c jekyll build --baseurl ""</kbd>
 Configuration file: /private/tmp/samasaur1.github.io/_config.yml
 To use retry middleware with Faraday v2.0+, install `faraday-retry` gem
             Source: /private/tmp/samasaur1.github.io
@@ -217,9 +218,9 @@ To use retry middleware with Faraday v2.0+, install `faraday-retry` gem
 	from /nix/store/yjd83mi8nn976421frdm4ph9wamfmkn5-ruby3.1.4-mercenary-0.4.0/lib/ruby/gems/3.1.0/gems/mercenary-0.4.0/lib/mercenary/command.rb:221:in `execute'
 	from /nix/store/yjd83mi8nn976421frdm4ph9wamfmkn5-ruby3.1.4-mercenary-0.4.0/lib/ruby/gems/3.1.0/gems/mercenary-0.4.0/lib/mercenary/program.rb:44:in `go'
 	from /nix/store/yjd83mi8nn976421frdm4ph9wamfmkn5-ruby3.1.4-mercenary-0.4.0/lib/ruby/gems/3.1.0/gems/mercenary-0.4.0/lib/mercenary.rb:21:in `program'
-	from /nix/store/dl5vgv19bl5lvndbhq8aa8bckv4vshyq-web-gems/lib/ruby/gems/3.1.0/gems/jekyll-4.3.2/exe/jekyll:15:in `<top (required)>'
+	from /nix/store/dl5vgv19bl5lvndbhq8aa8bckv4vshyq-web-gems/lib/ruby/gems/3.1.0/gems/jekyll-4.3.2/exe/jekyll:15:in `&lt;top (required)&gt;'
 	from /nix/store/dl5vgv19bl5lvndbhq8aa8bckv4vshyq-web-gems/bin/jekyll:35:in `load'
-	from /nix/store/dl5vgv19bl5lvndbhq8aa8bckv4vshyq-web-gems/bin/jekyll:35:in `<main>'
+	from /nix/store/dl5vgv19bl5lvndbhq8aa8bckv4vshyq-web-gems/bin/jekyll:35:in `&lt;main&gt;'
 </pre>
 
 I looked at the source code for the plugin that was causing an error, and in retrospect, the issue was clear: that plugin attempts to call `git rev-parse --short HEAD`, but the `git` executable wasn't in the dev shell. For some reason, `nix develop` doesn't clear the `$PATH`, so it worked on my machine by using the global git on my computer, but it didn't work in CI. I added git to the dev shell:
