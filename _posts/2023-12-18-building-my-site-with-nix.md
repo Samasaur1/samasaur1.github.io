@@ -2,7 +2,7 @@
 layout: post
 title: 'Building My Site With Nix'
 date: 2023-12-18 14:44 -0800
-last_updated: 2023-12-18 16:13 -0800
+last_updated: 2023-12-31 19:35 +0100
 tags:
 - jekyll
 - nix
@@ -163,7 +163,7 @@ jobs:
         uses: actions/configure-pages@v3
       - name: Build with Jekyll (via Nix)
         # Outputs to the './_site' directory by default
-        run: nix develop --ignore-environment --keep JEKYLL_ENV -c jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+        run: nix develop --ignore-environment --keep JEKYLL_ENV -c jekyll build --baseurl "${% raw %}{{ steps.pages.outputs.base_path }}{% endraw %}"
         env:
           JEKYLL_ENV: production
       - name: Upload artifact
@@ -174,7 +174,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${% raw %}{{ steps.deployment.outputs.page_url }}{% endraw %}
     runs-on: ubuntu-latest
     needs: build
     steps:
