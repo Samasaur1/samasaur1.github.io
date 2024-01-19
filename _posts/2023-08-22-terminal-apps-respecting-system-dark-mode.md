@@ -8,6 +8,7 @@ tags:
 - neovim
 - alacritty
 - swift
+- dmn
 ---
 This article is dedicated to Alex, for this glowing review and proving the inspiration to finish this post.
 

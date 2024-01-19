@@ -2,7 +2,7 @@
 layout: post
 title: 'Building My Site With Nix'
 date: 2023-12-18 14:44 -0800
-last_updated: 2023-12-31 19:35 +0100
+last_updated: 2024-01-19 09:38 -0800
 tags:
 - jekyll
 - nix
@@ -69,7 +69,7 @@ After some false starts, I managed to get that excerpt in the right place:
 However, when I tried to use the dev shell, I still got errors:
 
 <pre>
-<span class="user-select-none"><strong><span class="text-danger">[sam]</span><span class="text-primary">(~)</span></strong>$ </span><kbd class="user-select-all">nix develop .#web</kbd>
+<span class="user-select-none"><strong><span class="text-danger">[sam]</span><span class="text-primary">(~)</span></strong>$ </span><kbd class="user-select-all">nix develop</kbd>
 error: hash mismatch in fixed-output derivation '/nix/store/wqs5xxvkwjzqibj1p0r1068d89839cpi-sass-embedded-1.59.3.gem.drv':
          specified: sha256-xQovdIRXLQct7pd2/lfvDxjfDUNIqzGOYHKMrd4Om58=
             got:    sha256-e68up83yhtKKVhMYFbS48oAZHjJncu4joPUyB9u45x8=
