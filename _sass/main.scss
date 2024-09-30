@@ -75,13 +75,13 @@
 
 @font-face{
   font-family: 'JetBrains Mono';
-  src: url('https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/fonts/ttf/JetBrainsMonoNL-Regular.ttf') format('truetype');
+  src: local("JetBrains Mono NL"), local("JetBrains Mono"), url('https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/fonts/archives/ttf/JetBrainsMonoNL-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 pre, code, kbd {
-  font-family:'JetBrains Mono';
+  font-family:'JetBrains Mono', monospace;
 }
 
 pre {
