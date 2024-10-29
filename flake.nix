@@ -1,6 +1,8 @@
 {
   description = "A very basic flake";
 
+  inputs.nixpkgs.url = "github:nixos/nixpkgs";
+
   outputs = { self, nixpkgs }:
     let
     allSystems = nixpkgs.lib.systems.flakeExposed;
