@@ -5,22 +5,28 @@
 
   outputs = { self, nixpkgs }:
     let
-    allSystems = nixpkgs.lib.systems.flakeExposed;
-  forAllSystems = nixpkgs.lib.genAttrs allSystems;
-  in {
-    devShells = forAllSystems (system:
-      let gems = nixpkgs.legacyPackages.${system}.bundlerEnv {
-        name = "web gems";
-        gemdir = ./.;
-      }; in
-        {
-        default = nixpkgs.legacyPackages.${system}.mkShell {
-          packages = [ gems gems.wrappedRuby nixpkgs.legacyPackages.${system}.git ];
-          # shellHook = ''
-          #   export DEBUG=1
-          # '';
-        };
+      allSystems = nixpkgs.lib.systems.flakeExposed;
+      forAllSystems = nixpkgs.lib.genAttrs allSystems;
+      define = f: forAllSystems (system:
+        let
+          pkgs = import nixpkgs {
+            inherit system;
+            config = {
+              allowUnfree = true;
+            };
+          };
+        in
+          f pkgs);
+    in {
+      devShells = define (pkgs:
+        let gems = pkgs.bundlerEnv {
+          name = "web gems";
+          gemdir = ./.;
+        }; in {
+          default = pkgs.mkShell {
+            packages = [ gems gems.wrappedRuby pkgs.git ];
+          };
         }
-    );
-  };
+      );
+    };
 }
