@@ -20,18 +20,15 @@
     in {
       devShells = define (pkgs:
         let
-          gemfileGems = pkgs.bundlerEnv {
+          gems = pkgs.bundlerEnv {
             name = "web gems";
             gemdir = ./.;
           };
           kramdown = pkgs.callPackage ./kramdown-syntax_tree_sitter {};
-          gems = pkgs.symlinkJoin {
-            name = "gems";
-            paths = [ gemfileGems kramdown ];
-          };
         in {
           default = pkgs.mkShell {
-            packages = [ gems pkgs.git ];
+            # we don't seem to need gems.wrappedRuby, but I'm putting it here just in case
+            packages = [ gems gems.wrappedRuby kramdown pkgs.git ];
           };
         }
       );
