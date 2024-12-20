@@ -19,12 +19,19 @@
           f pkgs);
     in {
       devShells = define (pkgs:
-        let gems = pkgs.bundlerEnv {
-          name = "web gems";
-          gemdir = ./.;
-        }; in {
+        let
+          gemfileGems = pkgs.bundlerEnv {
+            name = "web gems";
+            gemdir = ./.;
+          };
+          kramdown = pkgs.callPackage ./kramdown-syntax_tree_sitter {};
+          gems = pkgs.symlinkJoin {
+            name = "gems";
+            paths = [ gemfileGems kramdown ];
+          };
+        in {
           default = pkgs.mkShell {
-            packages = [ gems gems.wrappedRuby pkgs.git ];
+            packages = [ gems pkgs.git ];
           };
         }
       );

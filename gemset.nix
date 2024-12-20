@@ -409,6 +409,16 @@
     };
     version = "4.4.0";
   };
+  rutie = {
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "1jm2qh57rxb4p9zhkjj0r1cjb0wbcyma9vcrnwn3if2q2299plwg";
+      type = "gem";
+    };
+    version = "0.0.4";
+  };
   safe_yaml = {
     groups = ["default"];
     platforms = [];

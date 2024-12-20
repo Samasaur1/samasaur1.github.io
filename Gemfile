@@ -16,3 +16,5 @@ gem 'jekyll-seo-tag'
 gem 'jekyll-datapage-generator'
 gem "jekyll-github-metadata"
 gem "jekyll-git-hash"
+
+gem "rutie"

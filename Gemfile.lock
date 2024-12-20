@@ -81,6 +81,7 @@ GEM
       ffi (~> 1.0)
     rexml (3.3.9)
     rouge (4.4.0)
+    rutie (0.0.4)
     safe_yaml (1.0.5)
     sass-embedded (1.80.4)
       google-protobuf (~> 4.28)
@@ -106,7 +107,8 @@ DEPENDENCIES
   jekyll-git-hash
   jekyll-github-metadata
   jekyll-seo-tag
+  rutie
   webrick (~> 1.7)
 
 BUNDLED WITH
-   2.5.16
+   2.5.22

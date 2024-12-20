@@ -8,6 +8,10 @@ plugins:
   - jekyll-datapage-generator
   - jekyll-github-metadata
   - jekyll-git-hash
+  - kramdown/syntax_tree_sitter
+
+kramdown:
+  syntax_highlighter: tree-sitter
 
 defaults:
   - 

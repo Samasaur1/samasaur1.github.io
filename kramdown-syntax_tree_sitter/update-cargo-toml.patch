@@ -1,0 +1,16 @@
+diff --git a/Cargo.toml b/Cargo.toml
+index 16f9774..023c580 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -10,7 +10,7 @@ crate-type = ["cdylib"]
+ [dependencies]
+ anyhow = "*"
+ magnus = { version = "*", features = ["embed"] }
+-tree-sitter = "*"
+-tree-sitter-cli = "*"
+-tree-sitter-highlight = "*"
+-tree-sitter-loader = "*"
++tree-sitter = { git = "https://github.com/tree-sitter/tree-sitter", version = "0.25.0" }
++tree-sitter-cli = { git = "https://github.com/tree-sitter/tree-sitter", version = "0.25.0" }
++tree-sitter-highlight = { git = "https://github.com/tree-sitter/tree-sitter", version = "0.25.0" }
++tree-sitter-loader = { git = "https://github.com/tree-sitter/tree-sitter", version = "0.25.0" }

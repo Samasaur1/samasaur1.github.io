@@ -1,0 +1,27 @@
+diff --git a/src/tree_sitter_adapter.rs b/src/tree_sitter_adapter.rs
+index c37e240..470bbe5 100644
+--- a/src/tree_sitter_adapter.rs
++++ b/src/tree_sitter_adapter.rs
+@@ -82,13 +82,18 @@ fn highlights(
+ 
+ fn create_html_attribute_callback<'a>(
+     html_attributes: &'a [String],
+-) -> impl Fn(Highlight) -> &'a [u8] {
+-    |highlight| {
+-        html_attributes
++) -> impl Fn(Highlight, &mut Vec<u8>) + use<'a>  {
++    // https://github.com/tree-sitter/tree-sitter/compare/v0.24.5...c132f1928f447727062c0a9cda70a4a13fdb8c20#diff-538bdc046297d41717e7a863a54456d47829fb2e298963198cdfb32684500cddL1155-L1165
++    |highlight, html| {
++        let attribute_string = html_attributes
+             .get(highlight.0)
+             .map(String::as_str)
+             .unwrap_or_default()
+-            .as_bytes()
++            .as_bytes();
++        if !attribute_string.is_empty() {
++            html.extend(b" ");
++            html.extend(attribute_string);
++        }
+     }
+ }
+ 
