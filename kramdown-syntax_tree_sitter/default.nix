@@ -55,7 +55,10 @@ in
         end
       end
       EOF
-      substituteInPlace "lib/tree_sitter_adapter.rb" --replace "File.expand_path(File.join(__dir__, '..', 'ext', 'tree_sitter_adapter', 'target'))" "'${rustDylib}/lib'"
+      substituteInPlace "lib/tree_sitter_adapter.rb" --replace-fail "File.expand_path(File.join(__dir__, '..', 'ext', 'tree_sitter_adapter', 'target'))" "'${rustDylib}/lib'"
+
+      patch -p1 <${./language-liquid.patch}
+      cat lib/kramdown/syntax_tree_sitter/languages.rb
 
       runHook postPatch
     '';

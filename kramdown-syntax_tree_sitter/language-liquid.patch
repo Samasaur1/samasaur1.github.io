@@ -1,0 +1,12 @@
+diff --git a/lib/kramdown/syntax_tree_sitter/languages.rb b/lib/kramdown/syntax_tree_sitter/languages.rb
+index 35657dd..03e4750 100644
+--- a/lib/kramdown/syntax_tree_sitter/languages.rb
++++ b/lib/kramdown/syntax_tree_sitter/languages.rb
+@@ -26,6 +26,7 @@ module Kramdown
+             'source.js' => %w[javascript js],
+             'source.json' => %w[json],
+             'source.julia' => %w[jl julia],
++            'source.liquid' => %w[liquid],
+             'source.lua' => %w[lua],
+             'source.mk' => %w[bsdmake gnumake make makefile mf],
+             'source.nix' => %w[nix nixos],
