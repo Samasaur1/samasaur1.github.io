@@ -4,7 +4,7 @@ layout: default
 <div id="tag-info">
   <h2>{{ page.title }}</h2>
   {% if page.description %}
-    <p class="pb-0 mb-0">{{ page.description }}</p>
+    <p class="pb-0 mb-0">{{ page.description | markdownify }}</p>
   {% endif %}
 </div>
 <hr class="mb-0 mt-0 pb-0 pt-0"/>

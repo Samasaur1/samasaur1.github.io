@@ -60,3 +60,20 @@
   color: 7e7eff
   description: |-
     declarative configuration of macOS using Nix
+- name: grafana
+  description: |-
+    can refer to any of:
+    - the Grafana/LGTM stack (Loki, Grafana, Tempo, and Mimir), which is a suite of software for collecting and visualizing analytics, metrics, and logs
+    - the actual Grafana application, which lets you visualize data from Loki, Tempo, and Mimir/Prometheus
+    - the Grafana agent, which collects metrics and logs and forwards them to centralized Mimir/Prometheus and Loki instances
+- name: loki
+  description: |-
+    centralized log aggregation and storage
+- name: mimir
+  description: |-
+    Prometheus-compatibile centralized metrics aggregation and storage
+- name: prometheus
+  description: |-
+    metrics collection and centralized storage. Prometheus has two main usages:
+    - centralized metrics aggregation (for use as a Grafana data source)
+    - metrics collection (to be sent to a centralized Prometheus-compatible instance)
