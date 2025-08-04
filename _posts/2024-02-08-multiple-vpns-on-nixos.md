@@ -2,6 +2,7 @@
 layout: post
 title: 'Multiple VPNs on NixOS'
 date: 2024-02-08 19:00 -0800
+last_updated: 2025-08-03 21:24 -0700
 tags:
 - tailscale
 - wireguard
@@ -192,7 +193,7 @@ Here's what we'll do instead:
     ```
     which sends all incoming TCP packets (`-p tcp`) on port 9000 `(--dport 9000`) over the `veth` to the netns, but only if the destination address is `127.0.0.1` (localhost, indicating that this request came from a service running in the main netns on this machine), or `100.114.224.96` (this machine's Tailscale IP address, indicating that this request came from one of my other machines).
 
-[^pf]: For example, if you are port forwarding to this port on this machine, then the service will be publicly available.
+    [^pf]: For example, if you are port forwarding to this port on this machine, then the service will be publicly available.
 
 5. Mark packets coming in on the veth:
 
