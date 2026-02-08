@@ -17,7 +17,7 @@ defaults:
     values:
       author: sam
       # layout: default
-      commenting: open
+      commenting: temporarily-disabled # the actual value of this doesn't matter so long as it isn't 'open'
 
 #excerpt_separator: <!--more-->
 
