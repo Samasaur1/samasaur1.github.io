@@ -77,3 +77,6 @@
     metrics collection and centralized storage. Prometheus has two main usages:
     - centralized metrics aggregation (for use as a Grafana data source)
     - metrics collection (to be sent to a centralized Prometheus-compatible instance)
+- name: cliff
+  description: |-
+    my Tailscale-based notification service, allowing you to easily set up, send, and receive notifications from your devices.
