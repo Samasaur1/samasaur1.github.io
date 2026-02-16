@@ -2,6 +2,7 @@
 layout: post
 title: 'Building a Discord RSS Bot'
 date: 2023-03-09 22:40 -0800
+last_updated: 2026-02-15 20:14 -0800
 tags:
 - python
 - discord
@@ -11,7 +12,7 @@ In one of the Discord servers I'm in, there's a channel for people to post links
 
 My first thought was to look for existing Discord RSS bots — don't reinvent the wheel and all that — but the only one with free unlimited feeds, MonitoRSS, didn't seem to be listening to me when I tried to add feeds with it. Turns out they have disabled all interaction with the bot via Discord, and you have to set up feeds in the web control panel. However, this didn't give me an option to post blog updates in a thread, so it was a bust. I resolved to write my own bot.
 
-My friend had written [oobot](https://github.com/InternetUnexplorer/oobot), which is in the server I wanted to add an RSS bot to, and since the last time I wrote a Discord bot was so long ago that when I tried to run it, it just _didn't_, I figured I'd build off of oobot. Here's the entire source code for oobot, at the time that I wrote my bot:
+My friend had written [oobot](https://github.com/reed-cs-and-friends/oobot), which is in the server I wanted to add an RSS bot to, and since the last time I wrote a Discord bot was so long ago that when I tried to run it, it just _didn't_, I figured I'd build off of oobot. Here's the entire source code for oobot, at the time that I wrote my bot:
 
 ```python
 from asyncio import create_task, sleep
